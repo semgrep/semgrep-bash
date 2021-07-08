@@ -103,25 +103,17 @@ let map_heredoc_redirect (env : env) ((v1, v2) : CST.heredoc_redirect) =
   let v2 = token env v2 (* heredoc_start *) in
   todo env (v1, v2)
 
-let map_simple_expansion (env : env) (x : CST.simple_expansion) =
-  (match x with
-  | `Semg_double_curl_meta (v1, v2, v3) ->
-      let v1 = token env v1 (* "${{" *) in
-      let v2 = token env v2 (* pattern [A-Z_][A-Z_0-9]* *) in
-      let v3 = token env v3 (* "}}" *) in
-      todo env (v1, v2, v3)
-  | `DOLLAR_choice_pat_42e353e (v1, v2) ->
-      let v1 = token env v1 (* "$" *) in
-      let v2 =
-        (match v2 with
-        | `Pat_42e353e tok -> token env tok (* pattern \w+ *)
-        | `Choice_STAR x -> map_special_variable_name env x
-        | `BANG tok -> token env tok (* "!" *)
-        | `HASH tok -> token env tok (* "#" *)
-        )
-      in
-      todo env (v1, v2)
-  )
+let map_simple_expansion (env : env) ((v1, v2) : CST.simple_expansion) =
+  let v1 = token env v1 (* "$" *) in
+  let v2 =
+    (match v2 with
+    | `Pat_42e353e tok -> token env tok (* pattern \w+ *)
+    | `Choice_STAR x -> map_special_variable_name env x
+    | `BANG tok -> token env tok (* "!" *)
+    | `HASH tok -> token env tok (* "#" *)
+    )
+  in
+  todo env (v1, v2)
 
 let rec map_anon_choice_prim_exp_618725a (env : env) (x : CST.anon_choice_prim_exp_618725a) =
   (match x with
@@ -504,6 +496,11 @@ and map_literal (env : env) (x : CST.literal) =
 and map_primary_expression (env : env) (x : CST.primary_expression) =
   (match x with
   | `Semg_ellips tok -> token env tok (* "..." *)
+  | `Semg_double_curl_meta (v1, v2, v3) ->
+      let v1 = token env v1 (* "${{" *) in
+      let v2 = token env v2 (* pattern [A-Z_][A-Z_0-9]* *) in
+      let v3 = token env v3 (* "}}" *) in
+      todo env (v1, v2, v3)
   | `Word tok -> token env tok (* word *)
   | `Str x -> map_string_ env x
   | `Raw_str tok -> token env tok (* pattern "'[^']*'" *)

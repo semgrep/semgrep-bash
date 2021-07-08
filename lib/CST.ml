@@ -87,21 +87,15 @@ type heredoc_redirect = (
 )
 [@@deriving sexp_of]
 
-type simple_expansion = [
-    `Semg_double_curl_meta of (
-        Token.t (* "${{" *) * semgrep_metavariable_name (*tok*)
-      * Token.t (* "}}" *)
-    )
-  | `DOLLAR_choice_pat_42e353e of (
-        Token.t (* "$" *)
-      * [
-            `Pat_42e353e of pat_42e353e (*tok*)
-          | `Choice_STAR of special_variable_name
-          | `BANG of Token.t (* "!" *)
-          | `HASH of Token.t (* "#" *)
-        ]
-    )
-]
+type simple_expansion = (
+    Token.t (* "$" *)
+  * [
+        `Pat_42e353e of pat_42e353e (*tok*)
+      | `Choice_STAR of special_variable_name
+      | `BANG of Token.t (* "!" *)
+      | `HASH of Token.t (* "#" *)
+    ]
+)
 [@@deriving sexp_of]
 
 type anon_choice_prim_exp_618725a = [
@@ -322,6 +316,10 @@ and literal = [
 
 and primary_expression = [
     `Semg_ellips of Token.t (* "..." *)
+  | `Semg_double_curl_meta of (
+        Token.t (* "${{" *) * semgrep_metavariable_name (*tok*)
+      * Token.t (* "}}" *)
+    )
   | `Word of word (*tok*)
   | `Str of string_
   | `Raw_str of raw_string (*tok*)

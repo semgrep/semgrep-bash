@@ -72,26 +72,23 @@ let children_regexps : (string * Run.exp option) list = [
   );
   "simple_expansion",
   Some (
-    Alt [|
-      Token (Name "semgrep_double_curly_metavariable");
-      Seq [
-        Token (Literal "$");
+    Seq [
+      Token (Literal "$");
+      Alt [|
+        Token (Name "pat_42e353e");
         Alt [|
-          Token (Name "pat_42e353e");
-          Alt [|
-            Token (Literal "*");
-            Token (Literal "@");
-            Token (Literal "?");
-            Token (Literal "-");
-            Token (Literal "$");
-            Token (Literal "0");
-            Token (Literal "_");
-          |];
-          Token (Literal "!");
-          Token (Literal "#");
+          Token (Literal "*");
+          Token (Literal "@");
+          Token (Literal "?");
+          Token (Literal "-");
+          Token (Literal "$");
+          Token (Literal "0");
+          Token (Literal "_");
         |];
-      ];
-    |];
+        Token (Literal "!");
+        Token (Literal "#");
+      |];
+    ];
   );
   "array",
   Some (
@@ -102,6 +99,7 @@ let children_regexps : (string * Run.exp option) list = [
           Token (Name "concatenation");
           Alt [|
             Token (Name "semgrep_ellipsis");
+            Token (Name "semgrep_double_curly_metavariable");
             Token (Name "word");
             Token (Name "string");
             Token (Name "raw_string");
@@ -197,6 +195,7 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -218,6 +217,7 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_ellipsis");
+              Token (Name "semgrep_double_curly_metavariable");
               Token (Name "word");
               Token (Name "string");
               Token (Name "raw_string");
@@ -255,6 +255,7 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -311,6 +312,7 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_ellipsis");
+              Token (Name "semgrep_double_curly_metavariable");
               Token (Name "word");
               Token (Name "string");
               Token (Name "raw_string");
@@ -335,6 +337,7 @@ let children_regexps : (string * Run.exp option) list = [
                 Token (Name "concatenation");
                 Alt [|
                   Token (Name "semgrep_ellipsis");
+                  Token (Name "semgrep_double_curly_metavariable");
                   Token (Name "word");
                   Token (Name "string");
                   Token (Name "raw_string");
@@ -362,6 +365,7 @@ let children_regexps : (string * Run.exp option) list = [
       Token (Name "concatenation");
       Alt [|
         Token (Name "semgrep_ellipsis");
+        Token (Name "semgrep_double_curly_metavariable");
         Token (Name "word");
         Token (Name "string");
         Token (Name "raw_string");
@@ -447,6 +451,7 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -465,6 +470,7 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Alt [|
               Token (Name "semgrep_ellipsis");
+              Token (Name "semgrep_double_curly_metavariable");
               Token (Name "word");
               Token (Name "string");
               Token (Name "raw_string");
@@ -503,6 +509,7 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_ellipsis");
+              Token (Name "semgrep_double_curly_metavariable");
               Token (Name "word");
               Token (Name "string");
               Token (Name "raw_string");
@@ -675,6 +682,7 @@ let children_regexps : (string * Run.exp option) list = [
                 Token (Name "concatenation");
                 Alt [|
                   Token (Name "semgrep_ellipsis");
+                  Token (Name "semgrep_double_curly_metavariable");
                   Token (Name "word");
                   Token (Name "string");
                   Token (Name "raw_string");
@@ -719,6 +727,7 @@ let children_regexps : (string * Run.exp option) list = [
                   Token (Name "concatenation");
                   Alt [|
                     Token (Name "semgrep_ellipsis");
+                    Token (Name "semgrep_double_curly_metavariable");
                     Token (Name "word");
                     Token (Name "string");
                     Token (Name "raw_string");
@@ -755,6 +764,7 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -796,6 +806,7 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -825,6 +836,7 @@ let children_regexps : (string * Run.exp option) list = [
               Token (Name "concatenation");
               Alt [|
                 Token (Name "semgrep_ellipsis");
+                Token (Name "semgrep_double_curly_metavariable");
                 Token (Name "word");
                 Token (Name "string");
                 Token (Name "raw_string");
@@ -904,6 +916,7 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -979,6 +992,7 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -1000,6 +1014,7 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_ellipsis");
+              Token (Name "semgrep_double_curly_metavariable");
               Token (Name "word");
               Token (Name "string");
               Token (Name "raw_string");
@@ -1310,6 +1325,7 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_ellipsis");
+          Token (Name "semgrep_double_curly_metavariable");
           Token (Name "word");
           Token (Name "string");
           Token (Name "raw_string");
@@ -1426,6 +1442,7 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_ellipsis");
+              Token (Name "semgrep_double_curly_metavariable");
               Token (Name "word");
               Token (Name "string");
               Token (Name "raw_string");
@@ -1461,6 +1478,7 @@ let children_regexps : (string * Run.exp option) list = [
           Token (Name "concatenation");
           Alt [|
             Token (Name "semgrep_ellipsis");
+            Token (Name "semgrep_double_curly_metavariable");
             Token (Name "word");
             Token (Name "string");
             Token (Name "raw_string");
@@ -1637,65 +1655,55 @@ let trans_simple_expansion ((kind, body) : mt) : CST.simple_expansion =
   match body with
   | Children v ->
       (match v with
-      | Alt (0, v) ->
-          `Semg_double_curl_meta (
-            trans_semgrep_double_curly_metavariable (Run.matcher_token v)
-          )
-      | Alt (1, v) ->
-          `DOLLAR_choice_pat_42e353e (
-            (match v with
-            | Seq [v0; v1] ->
-                (
-                  Run.trans_token (Run.matcher_token v0),
-                  (match v1 with
+      | Seq [v0; v1] ->
+          (
+            Run.trans_token (Run.matcher_token v0),
+            (match v1 with
+            | Alt (0, v) ->
+                `Pat_42e353e (
+                  trans_pat_42e353e (Run.matcher_token v)
+                )
+            | Alt (1, v) ->
+                `Choice_STAR (
+                  (match v with
                   | Alt (0, v) ->
-                      `Pat_42e353e (
-                        trans_pat_42e353e (Run.matcher_token v)
+                      `STAR (
+                        Run.trans_token (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Choice_STAR (
-                        (match v with
-                        | Alt (0, v) ->
-                            `STAR (
-                              Run.trans_token (Run.matcher_token v)
-                            )
-                        | Alt (1, v) ->
-                            `AT (
-                              Run.trans_token (Run.matcher_token v)
-                            )
-                        | Alt (2, v) ->
-                            `QMARK (
-                              Run.trans_token (Run.matcher_token v)
-                            )
-                        | Alt (3, v) ->
-                            `DASH (
-                              Run.trans_token (Run.matcher_token v)
-                            )
-                        | Alt (4, v) ->
-                            `DOLLAR (
-                              Run.trans_token (Run.matcher_token v)
-                            )
-                        | Alt (5, v) ->
-                            `X_0 (
-                              Run.trans_token (Run.matcher_token v)
-                            )
-                        | Alt (6, v) ->
-                            `X__ (
-                              Run.trans_token (Run.matcher_token v)
-                            )
-                        | _ -> assert false
-                        )
+                      `AT (
+                        Run.trans_token (Run.matcher_token v)
                       )
                   | Alt (2, v) ->
-                      `BANG (
+                      `QMARK (
                         Run.trans_token (Run.matcher_token v)
                       )
                   | Alt (3, v) ->
-                      `HASH (
+                      `DASH (
+                        Run.trans_token (Run.matcher_token v)
+                      )
+                  | Alt (4, v) ->
+                      `DOLLAR (
+                        Run.trans_token (Run.matcher_token v)
+                      )
+                  | Alt (5, v) ->
+                      `X_0 (
+                        Run.trans_token (Run.matcher_token v)
+                      )
+                  | Alt (6, v) ->
+                      `X__ (
                         Run.trans_token (Run.matcher_token v)
                       )
                   | _ -> assert false
                   )
+                )
+            | Alt (2, v) ->
+                `BANG (
+                  Run.trans_token (Run.matcher_token v)
+                )
+            | Alt (3, v) ->
+                `HASH (
+                  Run.trans_token (Run.matcher_token v)
                 )
             | _ -> assert false
             )
@@ -1726,38 +1734,42 @@ let rec trans_array_ ((kind, body) : mt) : CST.array_ =
                             trans_semgrep_ellipsis (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
+                          `Semg_double_curl_meta (
+                            trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                          )
+                      | Alt (2, v) ->
                           `Word (
                             trans_word (Run.matcher_token v)
                           )
-                      | Alt (2, v) ->
+                      | Alt (3, v) ->
                           `Str (
                             trans_string_ (Run.matcher_token v)
                           )
-                      | Alt (3, v) ->
+                      | Alt (4, v) ->
                           `Raw_str (
                             trans_raw_string (Run.matcher_token v)
                           )
-                      | Alt (4, v) ->
+                      | Alt (5, v) ->
                           `Ansii_c_str (
                             trans_ansii_c_string (Run.matcher_token v)
                           )
-                      | Alt (5, v) ->
+                      | Alt (6, v) ->
                           `Expa (
                             trans_expansion (Run.matcher_token v)
                           )
-                      | Alt (6, v) ->
+                      | Alt (7, v) ->
                           `Simple_expa (
                             trans_simple_expansion (Run.matcher_token v)
                           )
-                      | Alt (7, v) ->
+                      | Alt (8, v) ->
                           `Str_expa (
                             trans_string_expansion (Run.matcher_token v)
                           )
-                      | Alt (8, v) ->
+                      | Alt (9, v) ->
                           `Cmd_subs (
                             trans_command_substitution (Run.matcher_token v)
                           )
-                      | Alt (9, v) ->
+                      | Alt (10, v) ->
                           `Proc_subs (
                             trans_process_substitution (Run.matcher_token v)
                           )
@@ -1987,38 +1999,42 @@ and trans_case_item ((kind, body) : mt) : CST.case_item =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -2053,38 +2069,42 @@ and trans_case_item ((kind, body) : mt) : CST.case_item =
                                   trans_semgrep_ellipsis (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
+                                `Semg_double_curl_meta (
+                                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                )
+                            | Alt (2, v) ->
                                 `Word (
                                   trans_word (Run.matcher_token v)
                                 )
-                            | Alt (2, v) ->
+                            | Alt (3, v) ->
                                 `Str (
                                   trans_string_ (Run.matcher_token v)
                                 )
-                            | Alt (3, v) ->
+                            | Alt (4, v) ->
                                 `Raw_str (
                                   trans_raw_string (Run.matcher_token v)
                                 )
-                            | Alt (4, v) ->
+                            | Alt (5, v) ->
                                 `Ansii_c_str (
                                   trans_ansii_c_string (Run.matcher_token v)
                                 )
-                            | Alt (5, v) ->
+                            | Alt (6, v) ->
                                 `Expa (
                                   trans_expansion (Run.matcher_token v)
                                 )
-                            | Alt (6, v) ->
+                            | Alt (7, v) ->
                                 `Simple_expa (
                                   trans_simple_expansion (Run.matcher_token v)
                                 )
-                            | Alt (7, v) ->
+                            | Alt (8, v) ->
                                 `Str_expa (
                                   trans_string_expansion (Run.matcher_token v)
                                 )
-                            | Alt (8, v) ->
+                            | Alt (9, v) ->
                                 `Cmd_subs (
                                   trans_command_substitution (Run.matcher_token v)
                                 )
-                            | Alt (9, v) ->
+                            | Alt (10, v) ->
                                 `Proc_subs (
                                   trans_process_substitution (Run.matcher_token v)
                                 )
@@ -2156,38 +2176,42 @@ and trans_case_statement ((kind, body) : mt) : CST.case_statement =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -2311,38 +2335,42 @@ and trans_command ((kind, body) : mt) : CST.command =
                                   trans_semgrep_ellipsis (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
+                                `Semg_double_curl_meta (
+                                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                )
+                            | Alt (2, v) ->
                                 `Word (
                                   trans_word (Run.matcher_token v)
                                 )
-                            | Alt (2, v) ->
+                            | Alt (3, v) ->
                                 `Str (
                                   trans_string_ (Run.matcher_token v)
                                 )
-                            | Alt (3, v) ->
+                            | Alt (4, v) ->
                                 `Raw_str (
                                   trans_raw_string (Run.matcher_token v)
                                 )
-                            | Alt (4, v) ->
+                            | Alt (5, v) ->
                                 `Ansii_c_str (
                                   trans_ansii_c_string (Run.matcher_token v)
                                 )
-                            | Alt (5, v) ->
+                            | Alt (6, v) ->
                                 `Expa (
                                   trans_expansion (Run.matcher_token v)
                                 )
-                            | Alt (6, v) ->
+                            | Alt (7, v) ->
                                 `Simple_expa (
                                   trans_simple_expansion (Run.matcher_token v)
                                 )
-                            | Alt (7, v) ->
+                            | Alt (8, v) ->
                                 `Str_expa (
                                   trans_string_expansion (Run.matcher_token v)
                                 )
-                            | Alt (8, v) ->
+                            | Alt (9, v) ->
                                 `Cmd_subs (
                                   trans_command_substitution (Run.matcher_token v)
                                 )
-                            | Alt (9, v) ->
+                            | Alt (10, v) ->
                                 `Proc_subs (
                                   trans_process_substitution (Run.matcher_token v)
                                 )
@@ -2391,38 +2419,42 @@ and trans_command ((kind, body) : mt) : CST.command =
                                               trans_semgrep_ellipsis (Run.matcher_token v)
                                             )
                                         | Alt (1, v) ->
+                                            `Semg_double_curl_meta (
+                                              trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                            )
+                                        | Alt (2, v) ->
                                             `Word (
                                               trans_word (Run.matcher_token v)
                                             )
-                                        | Alt (2, v) ->
+                                        | Alt (3, v) ->
                                             `Str (
                                               trans_string_ (Run.matcher_token v)
                                             )
-                                        | Alt (3, v) ->
+                                        | Alt (4, v) ->
                                             `Raw_str (
                                               trans_raw_string (Run.matcher_token v)
                                             )
-                                        | Alt (4, v) ->
+                                        | Alt (5, v) ->
                                             `Ansii_c_str (
                                               trans_ansii_c_string (Run.matcher_token v)
                                             )
-                                        | Alt (5, v) ->
+                                        | Alt (6, v) ->
                                             `Expa (
                                               trans_expansion (Run.matcher_token v)
                                             )
-                                        | Alt (6, v) ->
+                                        | Alt (7, v) ->
                                             `Simple_expa (
                                               trans_simple_expansion (Run.matcher_token v)
                                             )
-                                        | Alt (7, v) ->
+                                        | Alt (8, v) ->
                                             `Str_expa (
                                               trans_string_expansion (Run.matcher_token v)
                                             )
-                                        | Alt (8, v) ->
+                                        | Alt (9, v) ->
                                             `Cmd_subs (
                                               trans_command_substitution (Run.matcher_token v)
                                             )
-                                        | Alt (9, v) ->
+                                        | Alt (10, v) ->
                                             `Proc_subs (
                                               trans_process_substitution (Run.matcher_token v)
                                             )
@@ -2473,38 +2505,42 @@ and trans_command_name ((kind, body) : mt) : CST.command_name =
                   trans_semgrep_ellipsis (Run.matcher_token v)
                 )
             | Alt (1, v) ->
+                `Semg_double_curl_meta (
+                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                )
+            | Alt (2, v) ->
                 `Word (
                   trans_word (Run.matcher_token v)
                 )
-            | Alt (2, v) ->
+            | Alt (3, v) ->
                 `Str (
                   trans_string_ (Run.matcher_token v)
                 )
-            | Alt (3, v) ->
+            | Alt (4, v) ->
                 `Raw_str (
                   trans_raw_string (Run.matcher_token v)
                 )
-            | Alt (4, v) ->
+            | Alt (5, v) ->
                 `Ansii_c_str (
                   trans_ansii_c_string (Run.matcher_token v)
                 )
-            | Alt (5, v) ->
+            | Alt (6, v) ->
                 `Expa (
                   trans_expansion (Run.matcher_token v)
                 )
-            | Alt (6, v) ->
+            | Alt (7, v) ->
                 `Simple_expa (
                   trans_simple_expansion (Run.matcher_token v)
                 )
-            | Alt (7, v) ->
+            | Alt (8, v) ->
                 `Str_expa (
                   trans_string_expansion (Run.matcher_token v)
                 )
-            | Alt (8, v) ->
+            | Alt (9, v) ->
                 `Cmd_subs (
                   trans_command_substitution (Run.matcher_token v)
                 )
-            | Alt (9, v) ->
+            | Alt (10, v) ->
                 `Proc_subs (
                   trans_process_substitution (Run.matcher_token v)
                 )
@@ -2712,38 +2748,42 @@ and trans_concatenation ((kind, body) : mt) : CST.concatenation =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -2772,38 +2812,42 @@ and trans_concatenation ((kind, body) : mt) : CST.concatenation =
                                   trans_semgrep_ellipsis (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
+                                `Semg_double_curl_meta (
+                                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                )
+                            | Alt (2, v) ->
                                 `Word (
                                   trans_word (Run.matcher_token v)
                                 )
-                            | Alt (2, v) ->
+                            | Alt (3, v) ->
                                 `Str (
                                   trans_string_ (Run.matcher_token v)
                                 )
-                            | Alt (3, v) ->
+                            | Alt (4, v) ->
                                 `Raw_str (
                                   trans_raw_string (Run.matcher_token v)
                                 )
-                            | Alt (4, v) ->
+                            | Alt (5, v) ->
                                 `Ansii_c_str (
                                   trans_ansii_c_string (Run.matcher_token v)
                                 )
-                            | Alt (5, v) ->
+                            | Alt (6, v) ->
                                 `Expa (
                                   trans_expansion (Run.matcher_token v)
                                 )
-                            | Alt (6, v) ->
+                            | Alt (7, v) ->
                                 `Simple_expa (
                                   trans_simple_expansion (Run.matcher_token v)
                                 )
-                            | Alt (7, v) ->
+                            | Alt (8, v) ->
                                 `Str_expa (
                                   trans_string_expansion (Run.matcher_token v)
                                 )
-                            | Alt (8, v) ->
+                            | Alt (9, v) ->
                                 `Cmd_subs (
                                   trans_command_substitution (Run.matcher_token v)
                                 )
-                            | Alt (9, v) ->
+                            | Alt (10, v) ->
                                 `Proc_subs (
                                   trans_process_substitution (Run.matcher_token v)
                                 )
@@ -2887,38 +2931,42 @@ and trans_declaration_command ((kind, body) : mt) : CST.declaration_command =
                                   trans_semgrep_ellipsis (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
+                                `Semg_double_curl_meta (
+                                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                )
+                            | Alt (2, v) ->
                                 `Word (
                                   trans_word (Run.matcher_token v)
                                 )
-                            | Alt (2, v) ->
+                            | Alt (3, v) ->
                                 `Str (
                                   trans_string_ (Run.matcher_token v)
                                 )
-                            | Alt (3, v) ->
+                            | Alt (4, v) ->
                                 `Raw_str (
                                   trans_raw_string (Run.matcher_token v)
                                 )
-                            | Alt (4, v) ->
+                            | Alt (5, v) ->
                                 `Ansii_c_str (
                                   trans_ansii_c_string (Run.matcher_token v)
                                 )
-                            | Alt (5, v) ->
+                            | Alt (6, v) ->
                                 `Expa (
                                   trans_expansion (Run.matcher_token v)
                                 )
-                            | Alt (6, v) ->
+                            | Alt (7, v) ->
                                 `Simple_expa (
                                   trans_simple_expansion (Run.matcher_token v)
                                 )
-                            | Alt (7, v) ->
+                            | Alt (8, v) ->
                                 `Str_expa (
                                   trans_string_expansion (Run.matcher_token v)
                                 )
-                            | Alt (8, v) ->
+                            | Alt (9, v) ->
                                 `Cmd_subs (
                                   trans_command_substitution (Run.matcher_token v)
                                 )
-                            | Alt (9, v) ->
+                            | Alt (10, v) ->
                                 `Proc_subs (
                                   trans_process_substitution (Run.matcher_token v)
                                 )
@@ -3393,38 +3441,42 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                                             trans_semgrep_ellipsis (Run.matcher_token v)
                                           )
                                       | Alt (1, v) ->
+                                          `Semg_double_curl_meta (
+                                            trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                          )
+                                      | Alt (2, v) ->
                                           `Word (
                                             trans_word (Run.matcher_token v)
                                           )
-                                      | Alt (2, v) ->
+                                      | Alt (3, v) ->
                                           `Str (
                                             trans_string_ (Run.matcher_token v)
                                           )
-                                      | Alt (3, v) ->
+                                      | Alt (4, v) ->
                                           `Raw_str (
                                             trans_raw_string (Run.matcher_token v)
                                           )
-                                      | Alt (4, v) ->
+                                      | Alt (5, v) ->
                                           `Ansii_c_str (
                                             trans_ansii_c_string (Run.matcher_token v)
                                           )
-                                      | Alt (5, v) ->
+                                      | Alt (6, v) ->
                                           `Expa (
                                             trans_expansion (Run.matcher_token v)
                                           )
-                                      | Alt (6, v) ->
+                                      | Alt (7, v) ->
                                           `Simple_expa (
                                             trans_simple_expansion (Run.matcher_token v)
                                           )
-                                      | Alt (7, v) ->
+                                      | Alt (8, v) ->
                                           `Str_expa (
                                             trans_string_expansion (Run.matcher_token v)
                                           )
-                                      | Alt (8, v) ->
+                                      | Alt (9, v) ->
                                           `Cmd_subs (
                                             trans_command_substitution (Run.matcher_token v)
                                           )
-                                      | Alt (9, v) ->
+                                      | Alt (10, v) ->
                                           `Proc_subs (
                                             trans_process_substitution (Run.matcher_token v)
                                           )
@@ -3529,38 +3581,42 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                                                   trans_semgrep_ellipsis (Run.matcher_token v)
                                                 )
                                             | Alt (1, v) ->
+                                                `Semg_double_curl_meta (
+                                                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                                )
+                                            | Alt (2, v) ->
                                                 `Word (
                                                   trans_word (Run.matcher_token v)
                                                 )
-                                            | Alt (2, v) ->
+                                            | Alt (3, v) ->
                                                 `Str (
                                                   trans_string_ (Run.matcher_token v)
                                                 )
-                                            | Alt (3, v) ->
+                                            | Alt (4, v) ->
                                                 `Raw_str (
                                                   trans_raw_string (Run.matcher_token v)
                                                 )
-                                            | Alt (4, v) ->
+                                            | Alt (5, v) ->
                                                 `Ansii_c_str (
                                                   trans_ansii_c_string (Run.matcher_token v)
                                                 )
-                                            | Alt (5, v) ->
+                                            | Alt (6, v) ->
                                                 `Expa (
                                                   trans_expansion (Run.matcher_token v)
                                                 )
-                                            | Alt (6, v) ->
+                                            | Alt (7, v) ->
                                                 `Simple_expa (
                                                   trans_simple_expansion (Run.matcher_token v)
                                                 )
-                                            | Alt (7, v) ->
+                                            | Alt (8, v) ->
                                                 `Str_expa (
                                                   trans_string_expansion (Run.matcher_token v)
                                                 )
-                                            | Alt (8, v) ->
+                                            | Alt (9, v) ->
                                                 `Cmd_subs (
                                                   trans_command_substitution (Run.matcher_token v)
                                                 )
-                                            | Alt (9, v) ->
+                                            | Alt (10, v) ->
                                                 `Proc_subs (
                                                   trans_process_substitution (Run.matcher_token v)
                                                 )
@@ -3642,38 +3698,42 @@ and trans_expression ((kind, body) : mt) : CST.expression =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -3772,38 +3832,42 @@ and trans_file_redirect ((kind, body) : mt) : CST.file_redirect =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -3852,38 +3916,42 @@ and trans_for_statement ((kind, body) : mt) : CST.for_statement =
                                       trans_semgrep_ellipsis (Run.matcher_token v)
                                     )
                                 | Alt (1, v) ->
+                                    `Semg_double_curl_meta (
+                                      trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                    )
+                                | Alt (2, v) ->
                                     `Word (
                                       trans_word (Run.matcher_token v)
                                     )
-                                | Alt (2, v) ->
+                                | Alt (3, v) ->
                                     `Str (
                                       trans_string_ (Run.matcher_token v)
                                     )
-                                | Alt (3, v) ->
+                                | Alt (4, v) ->
                                     `Raw_str (
                                       trans_raw_string (Run.matcher_token v)
                                     )
-                                | Alt (4, v) ->
+                                | Alt (5, v) ->
                                     `Ansii_c_str (
                                       trans_ansii_c_string (Run.matcher_token v)
                                     )
-                                | Alt (5, v) ->
+                                | Alt (6, v) ->
                                     `Expa (
                                       trans_expansion (Run.matcher_token v)
                                     )
-                                | Alt (6, v) ->
+                                | Alt (7, v) ->
                                     `Simple_expa (
                                       trans_simple_expansion (Run.matcher_token v)
                                     )
-                                | Alt (7, v) ->
+                                | Alt (8, v) ->
                                     `Str_expa (
                                       trans_string_expansion (Run.matcher_token v)
                                     )
-                                | Alt (8, v) ->
+                                | Alt (9, v) ->
                                     `Cmd_subs (
                                       trans_command_substitution (Run.matcher_token v)
                                     )
-                                | Alt (9, v) ->
+                                | Alt (10, v) ->
                                     `Proc_subs (
                                       trans_process_substitution (Run.matcher_token v)
                                     )
@@ -4064,38 +4132,42 @@ and trans_herestring_redirect ((kind, body) : mt) : CST.herestring_redirect =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -4276,38 +4348,42 @@ and trans_last_case_item ((kind, body) : mt) : CST.last_case_item =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -4342,38 +4418,42 @@ and trans_last_case_item ((kind, body) : mt) : CST.last_case_item =
                                   trans_semgrep_ellipsis (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
+                                `Semg_double_curl_meta (
+                                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                )
+                            | Alt (2, v) ->
                                 `Word (
                                   trans_word (Run.matcher_token v)
                                 )
-                            | Alt (2, v) ->
+                            | Alt (3, v) ->
                                 `Str (
                                   trans_string_ (Run.matcher_token v)
                                 )
-                            | Alt (3, v) ->
+                            | Alt (4, v) ->
                                 `Raw_str (
                                   trans_raw_string (Run.matcher_token v)
                                 )
-                            | Alt (4, v) ->
+                            | Alt (5, v) ->
                                 `Ansii_c_str (
                                   trans_ansii_c_string (Run.matcher_token v)
                                 )
-                            | Alt (5, v) ->
+                            | Alt (6, v) ->
                                 `Expa (
                                   trans_expansion (Run.matcher_token v)
                                 )
-                            | Alt (6, v) ->
+                            | Alt (7, v) ->
                                 `Simple_expa (
                                   trans_simple_expansion (Run.matcher_token v)
                                 )
-                            | Alt (7, v) ->
+                            | Alt (8, v) ->
                                 `Str_expa (
                                   trans_string_expansion (Run.matcher_token v)
                                 )
-                            | Alt (8, v) ->
+                            | Alt (9, v) ->
                                 `Cmd_subs (
                                   trans_command_substitution (Run.matcher_token v)
                                 )
-                            | Alt (9, v) ->
+                            | Alt (10, v) ->
                                 `Proc_subs (
                                   trans_process_substitution (Run.matcher_token v)
                                 )
@@ -5269,38 +5349,42 @@ and trans_subscript ((kind, body) : mt) : CST.subscript =
                         trans_semgrep_ellipsis (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
+                      `Semg_double_curl_meta (
+                        trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
                       `Word (
                         trans_word (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
+                  | Alt (3, v) ->
                       `Str (
                         trans_string_ (Run.matcher_token v)
                       )
-                  | Alt (3, v) ->
+                  | Alt (4, v) ->
                       `Raw_str (
                         trans_raw_string (Run.matcher_token v)
                       )
-                  | Alt (4, v) ->
+                  | Alt (5, v) ->
                       `Ansii_c_str (
                         trans_ansii_c_string (Run.matcher_token v)
                       )
-                  | Alt (5, v) ->
+                  | Alt (6, v) ->
                       `Expa (
                         trans_expansion (Run.matcher_token v)
                       )
-                  | Alt (6, v) ->
+                  | Alt (7, v) ->
                       `Simple_expa (
                         trans_simple_expansion (Run.matcher_token v)
                       )
-                  | Alt (7, v) ->
+                  | Alt (8, v) ->
                       `Str_expa (
                         trans_string_expansion (Run.matcher_token v)
                       )
-                  | Alt (8, v) ->
+                  | Alt (9, v) ->
                       `Cmd_subs (
                         trans_command_substitution (Run.matcher_token v)
                       )
-                  | Alt (9, v) ->
+                  | Alt (10, v) ->
                       `Proc_subs (
                         trans_process_substitution (Run.matcher_token v)
                       )
@@ -5571,38 +5655,42 @@ and trans_unset_command ((kind, body) : mt) : CST.unset_command =
                                   trans_semgrep_ellipsis (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
+                                `Semg_double_curl_meta (
+                                  trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                                )
+                            | Alt (2, v) ->
                                 `Word (
                                   trans_word (Run.matcher_token v)
                                 )
-                            | Alt (2, v) ->
+                            | Alt (3, v) ->
                                 `Str (
                                   trans_string_ (Run.matcher_token v)
                                 )
-                            | Alt (3, v) ->
+                            | Alt (4, v) ->
                                 `Raw_str (
                                   trans_raw_string (Run.matcher_token v)
                                 )
-                            | Alt (4, v) ->
+                            | Alt (5, v) ->
                                 `Ansii_c_str (
                                   trans_ansii_c_string (Run.matcher_token v)
                                 )
-                            | Alt (5, v) ->
+                            | Alt (6, v) ->
                                 `Expa (
                                   trans_expansion (Run.matcher_token v)
                                 )
-                            | Alt (6, v) ->
+                            | Alt (7, v) ->
                                 `Simple_expa (
                                   trans_simple_expansion (Run.matcher_token v)
                                 )
-                            | Alt (7, v) ->
+                            | Alt (8, v) ->
                                 `Str_expa (
                                   trans_string_expansion (Run.matcher_token v)
                                 )
-                            | Alt (8, v) ->
+                            | Alt (9, v) ->
                                 `Cmd_subs (
                                   trans_command_substitution (Run.matcher_token v)
                                 )
-                            | Alt (9, v) ->
+                            | Alt (10, v) ->
                                 `Proc_subs (
                                   trans_process_substitution (Run.matcher_token v)
                                 )
@@ -5677,38 +5765,42 @@ and trans_variable_assignment ((kind, body) : mt) : CST.variable_assignment =
                               trans_semgrep_ellipsis (Run.matcher_token v)
                             )
                         | Alt (1, v) ->
+                            `Semg_double_curl_meta (
+                              trans_semgrep_double_curly_metavariable (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
                             `Word (
                               trans_word (Run.matcher_token v)
                             )
-                        | Alt (2, v) ->
+                        | Alt (3, v) ->
                             `Str (
                               trans_string_ (Run.matcher_token v)
                             )
-                        | Alt (3, v) ->
+                        | Alt (4, v) ->
                             `Raw_str (
                               trans_raw_string (Run.matcher_token v)
                             )
-                        | Alt (4, v) ->
+                        | Alt (5, v) ->
                             `Ansii_c_str (
                               trans_ansii_c_string (Run.matcher_token v)
                             )
-                        | Alt (5, v) ->
+                        | Alt (6, v) ->
                             `Expa (
                               trans_expansion (Run.matcher_token v)
                             )
-                        | Alt (6, v) ->
+                        | Alt (7, v) ->
                             `Simple_expa (
                               trans_simple_expansion (Run.matcher_token v)
                             )
-                        | Alt (7, v) ->
+                        | Alt (8, v) ->
                             `Str_expa (
                               trans_string_expansion (Run.matcher_token v)
                             )
-                        | Alt (8, v) ->
+                        | Alt (9, v) ->
                             `Cmd_subs (
                               trans_command_substitution (Run.matcher_token v)
                             )
-                        | Alt (9, v) ->
+                        | Alt (10, v) ->
                             `Proc_subs (
                               trans_process_substitution (Run.matcher_token v)
                             )
