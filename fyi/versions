@@ -1,6 +1,6 @@
 File: semgrep-grammars/src/tree-sitter-bash/LICENSE
 Git repo name: tree-sitter-bash
-Latest commit in repo: 7776f24dfa35826fd3038c54a9c311b9e263c22c
+Latest commit in repo: 30d369ba45971a40160de34631ceea05358c9a48
 Last change in file:
   commit 6861ab03bf19fbddd1d4bb95a76b23cb2092eb52
   Author: Max Brunsfeld <maxbrunsfeld@gmail.com>
@@ -10,24 +10,21 @@ Last change in file:
 ---
 File: semgrep-grammars/src/tree-sitter-bash/grammar.js
 Git repo name: tree-sitter-bash
-Latest commit in repo: 7776f24dfa35826fd3038c54a9c311b9e263c22c
+Latest commit in repo: 30d369ba45971a40160de34631ceea05358c9a48
 Last change in file:
-  commit 8ece09ca4c0b5e59b124cd19fa92c76b1a9e9dd4
-  Author: Kenneth Skovhus <skovhus@users.noreply.github.com>
-  Date:   Fri May 29 22:09:38 2020 +0200
+  commit c79d2377d4bf2a1a33b749fc8740b3bc2b0f8109
+  Author: Martin Jambon <martin@mjambon.com>
+  Date:   Sat Oct 9 02:44:05 2021 -0700
   
-      Add support for case fallthrough (#85)
-      
-      Fixes https://github.com/tree-sitter/tree-sitter-bash/issues/40
+      Add support for 'select' loops.
 ---
 File: semgrep-grammars/src/semgrep-bash/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: 6818fd9e2ef4e763f6b87b81efb74664bf5b2453
+Latest commit in repo: 1afdd484d6ac2bd4b5847e8559e19c6b27a802dd
 Last change in file:
-  commit 6818fd9e2ef4e763f6b87b81efb74664bf5b2453
-  Author: Martin Jambon <martin@r2c.dev>
-  Date:   Thu Jul 8 04:33:20 2021 -0700
+  commit 1afdd484d6ac2bd4b5847e8559e19c6b27a802dd
+  Author: Martin Jambon <martin@mjambon.com>
+  Date:   Tue Oct 12 02:44:00 2021 -0700
   
-      Move syntax extension for semgrep metavariable to a better location in
-      the grammar
+      Support more semgrep extensions for bash + tests
 ---

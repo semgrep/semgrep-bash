@@ -44,7 +44,9 @@ module.exports = grammar({
 
   extras: $ => [
     $.comment,
-    /\\?\s/,
+    /\s/,
+    /\\\r?\n/,
+    /\\( |\t|\v|\f)/
   ],
 
   supertypes: $ => [
@@ -112,7 +114,7 @@ module.exports = grammar({
     )),
 
     for_statement: $ => seq(
-      'for',
+      choice('for', 'select'),
       field('variable', $._simple_variable_name),
       optional(seq(
         'in',
@@ -465,7 +467,7 @@ module.exports = grammar({
       '"'
     ),
 
-    _string_content: $ => token(prec(-1, /([^"`$\\]|\\(.|\n))+/)),
+    _string_content: $ => token(prec(-1, /([^"`$\\]|\\(.|\r?\n))+/)),
 
     array: $ => seq(
       '(',
