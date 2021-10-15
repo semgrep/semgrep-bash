@@ -34,24 +34,33 @@ let extras = [
 
 let children_regexps : (string * Run.exp option) list = [
   "semgrep_ellipsis", None;
-  "semgrep_metavariable", None;
+  "semgrep_metavar_eq", None;
+  "variable_name", None;
   "regex", None;
   "special_character", None;
+  "simple_heredoc_body", None;
   "empty_value", None;
-  "variable_name", None;
   "concat", None;
   "raw_string", None;
-  "simple_heredoc_body", None;
+  "semgrep_metavariable", None;
+  "word", None;
   "file_descriptor", None;
-  "string_content", None;
   "heredoc_start", None;
   "ansii_c_string", None;
-  "word", None;
+  "test_operator", None;
   "heredoc_body_middle", None;
   "pat_42e353e", None;
   "heredoc_body_beginning", None;
   "heredoc_body_end", None;
-  "test_operator", None;
+  "string_content", None;
+  "semgrep_metavar_pluseq", None;
+  "extended_word",
+  Some (
+    Alt [|
+      Token (Name "semgrep_metavariable");
+      Token (Name "word");
+    |];
+  );
   "heredoc_redirect",
   Some (
     Seq [
@@ -61,13 +70,6 @@ let children_regexps : (string * Run.exp option) list = [
       |];
       Token (Name "heredoc_start");
     ];
-  );
-  "extended_word",
-  Some (
-    Alt [|
-      Token (Name "semgrep_metavariable");
-      Token (Name "word");
-    |];
   );
   "simple_expansion",
   Some (
@@ -1466,38 +1468,68 @@ let children_regexps : (string * Run.exp option) list = [
   );
   "variable_assignment",
   Some (
-    Seq [
-      Alt [|
-        Token (Name "variable_name");
-        Token (Name "subscript");
-      |];
-      Alt [|
-        Token (Literal "=");
-        Token (Literal "+=");
-      |];
-      Alt [|
+    Alt [|
+      Seq [
         Alt [|
-          Token (Name "semgrep_ellipsis");
-          Token (Name "concatenation");
-          Alt [|
-            Token (Name "word");
-            Token (Name "string");
-            Token (Name "raw_string");
-            Token (Name "ansii_c_string");
-            Token (Name "expansion");
-            Token (Name "simple_expansion");
-            Token (Name "string_expansion");
-            Token (Name "command_substitution");
-            Token (Name "process_substitution");
-          |];
-          Repeat1 (
-            Token (Name "special_character");
-          );
+          Token (Name "semgrep_metavar_eq");
+          Token (Name "semgrep_metavar_pluseq");
         |];
-        Token (Name "array");
-        Token (Name "empty_value");
-      |];
-    ];
+        Alt [|
+          Alt [|
+            Token (Name "semgrep_ellipsis");
+            Token (Name "concatenation");
+            Alt [|
+              Token (Name "word");
+              Token (Name "string");
+              Token (Name "raw_string");
+              Token (Name "ansii_c_string");
+              Token (Name "expansion");
+              Token (Name "simple_expansion");
+              Token (Name "string_expansion");
+              Token (Name "command_substitution");
+              Token (Name "process_substitution");
+            |];
+            Repeat1 (
+              Token (Name "special_character");
+            );
+          |];
+          Token (Name "array");
+          Token (Name "empty_value");
+        |];
+      ];
+      Seq [
+        Alt [|
+          Token (Name "variable_name");
+          Token (Name "subscript");
+        |];
+        Alt [|
+          Token (Literal "=");
+          Token (Literal "+=");
+        |];
+        Alt [|
+          Alt [|
+            Token (Name "semgrep_ellipsis");
+            Token (Name "concatenation");
+            Alt [|
+              Token (Name "word");
+              Token (Name "string");
+              Token (Name "raw_string");
+              Token (Name "ansii_c_string");
+              Token (Name "expansion");
+              Token (Name "simple_expansion");
+              Token (Name "string_expansion");
+              Token (Name "command_substitution");
+              Token (Name "process_substitution");
+            |];
+            Repeat1 (
+              Token (Name "special_character");
+            );
+          |];
+          Token (Name "array");
+          Token (Name "empty_value");
+        |];
+      ];
+    |];
   );
   "while_statement",
   Some (
@@ -1520,7 +1552,12 @@ let trans_semgrep_ellipsis ((kind, body) : mt) : CST.semgrep_ellipsis =
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_semgrep_metavariable ((kind, body) : mt) : CST.semgrep_metavariable =
+let trans_semgrep_metavar_eq ((kind, body) : mt) : CST.semgrep_metavar_eq =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_variable_name ((kind, body) : mt) : CST.variable_name =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
@@ -1530,8 +1567,12 @@ let trans_regex ((kind, body) : mt) : CST.regex =
   | Leaf v -> v
   | Children _ -> assert false
 
-
 let trans_special_character ((kind, body) : mt) : CST.special_character =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_simple_heredoc_body ((kind, body) : mt) : CST.simple_heredoc_body =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
@@ -1541,10 +1582,6 @@ let trans_empty_value ((kind, body) : mt) : CST.empty_value =
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_variable_name ((kind, body) : mt) : CST.variable_name =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
 
 let trans_concat ((kind, body) : mt) : CST.concat =
   match body with
@@ -1556,8 +1593,12 @@ let trans_raw_string ((kind, body) : mt) : CST.raw_string =
   | Leaf v -> v
   | Children _ -> assert false
 
+let trans_semgrep_metavariable ((kind, body) : mt) : CST.semgrep_metavariable =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
 
-let trans_simple_heredoc_body ((kind, body) : mt) : CST.simple_heredoc_body =
+let trans_word ((kind, body) : mt) : CST.word =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
@@ -1567,10 +1608,6 @@ let trans_file_descriptor ((kind, body) : mt) : CST.file_descriptor =
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_string_content ((kind, body) : mt) : CST.string_content =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
 
 let trans_heredoc_start ((kind, body) : mt) : CST.heredoc_start =
   match body with
@@ -1582,7 +1619,7 @@ let trans_ansii_c_string ((kind, body) : mt) : CST.ansii_c_string =
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_word ((kind, body) : mt) : CST.word =
+let trans_test_operator ((kind, body) : mt) : CST.test_operator =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
@@ -1607,11 +1644,32 @@ let trans_heredoc_body_end ((kind, body) : mt) : CST.heredoc_body_end =
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_test_operator ((kind, body) : mt) : CST.test_operator =
+let trans_string_content ((kind, body) : mt) : CST.string_content =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
 
+
+let trans_semgrep_metavar_pluseq ((kind, body) : mt) : CST.semgrep_metavar_pluseq =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_extended_word ((kind, body) : mt) : CST.extended_word =
+  match body with
+  | Children v ->
+      (match v with
+      | Alt (0, v) ->
+          `Semg_meta (
+            trans_semgrep_metavariable (Run.matcher_token v)
+          )
+      | Alt (1, v) ->
+          `Word (
+            trans_word (Run.matcher_token v)
+          )
+      | _ -> assert false
+      )
+  | Leaf _ -> assert false
 
 let trans_heredoc_redirect ((kind, body) : mt) : CST.heredoc_redirect =
   match body with
@@ -1636,23 +1694,6 @@ let trans_heredoc_redirect ((kind, body) : mt) : CST.heredoc_redirect =
       | _ -> assert false
       )
   | Leaf _ -> assert false
-
-let trans_extended_word ((kind, body) : mt) : CST.extended_word =
-  match body with
-  | Children v ->
-      (match v with
-      | Alt (0, v) ->
-          `Semg_meta (
-            trans_semgrep_metavariable (Run.matcher_token v)
-          )
-      | Alt (1, v) ->
-          `Word (
-            trans_word (Run.matcher_token v)
-          )
-      | _ -> assert false
-      )
-  | Leaf _ -> assert false
-
 
 let trans_simple_expansion ((kind, body) : mt) : CST.simple_expansion =
   match body with
@@ -1724,6 +1765,7 @@ let trans_simple_expansion ((kind, body) : mt) : CST.simple_expansion =
       | _ -> assert false
       )
   | Leaf _ -> assert false
+
 
 let rec trans_array_ ((kind, body) : mt) : CST.array_ =
   match body with
@@ -5718,102 +5760,202 @@ and trans_variable_assignment ((kind, body) : mt) : CST.variable_assignment =
   match body with
   | Children v ->
       (match v with
-      | Seq [v0; v1; v2] ->
-          (
-            (match v0 with
-            | Alt (0, v) ->
-                `Var_name (
-                  trans_variable_name (Run.matcher_token v)
-                )
-            | Alt (1, v) ->
-                `Subs (
-                  trans_subscript (Run.matcher_token v)
-                )
-            | _ -> assert false
-            )
-            ,
-            (match v1 with
-            | Alt (0, v) ->
-                `EQ (
-                  Run.trans_token (Run.matcher_token v)
-                )
-            | Alt (1, v) ->
-                `PLUSEQ (
-                  Run.trans_token (Run.matcher_token v)
-                )
-            | _ -> assert false
-            )
-            ,
-            (match v2 with
-            | Alt (0, v) ->
-                `Choice_semg_ellips (
-                  (match v with
+      | Alt (0, v) ->
+          `Choice_semg_meta_eq_choice_choice_semg_ellips (
+            (match v with
+            | Seq [v0; v1] ->
+                (
+                  (match v0 with
                   | Alt (0, v) ->
-                      `Semg_ellips (
-                        trans_semgrep_ellipsis (Run.matcher_token v)
+                      `Semg_meta_eq (
+                        trans_semgrep_metavar_eq (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Conc (
-                        trans_concatenation (Run.matcher_token v)
+                      `Semg_meta_pluseq (
+                        trans_semgrep_metavar_pluseq (Run.matcher_token v)
                       )
-                  | Alt (2, v) ->
-                      `Choice_word (
+                  | _ -> assert false
+                  )
+                  ,
+                  (match v1 with
+                  | Alt (0, v) ->
+                      `Choice_semg_ellips (
                         (match v with
                         | Alt (0, v) ->
-                            `Word (
-                              trans_word (Run.matcher_token v)
+                            `Semg_ellips (
+                              trans_semgrep_ellipsis (Run.matcher_token v)
                             )
                         | Alt (1, v) ->
-                            `Str (
-                              trans_string_ (Run.matcher_token v)
+                            `Conc (
+                              trans_concatenation (Run.matcher_token v)
                             )
                         | Alt (2, v) ->
-                            `Raw_str (
-                              trans_raw_string (Run.matcher_token v)
+                            `Choice_word (
+                              (match v with
+                              | Alt (0, v) ->
+                                  `Word (
+                                    trans_word (Run.matcher_token v)
+                                  )
+                              | Alt (1, v) ->
+                                  `Str (
+                                    trans_string_ (Run.matcher_token v)
+                                  )
+                              | Alt (2, v) ->
+                                  `Raw_str (
+                                    trans_raw_string (Run.matcher_token v)
+                                  )
+                              | Alt (3, v) ->
+                                  `Ansii_c_str (
+                                    trans_ansii_c_string (Run.matcher_token v)
+                                  )
+                              | Alt (4, v) ->
+                                  `Expa (
+                                    trans_expansion (Run.matcher_token v)
+                                  )
+                              | Alt (5, v) ->
+                                  `Simple_expa (
+                                    trans_simple_expansion (Run.matcher_token v)
+                                  )
+                              | Alt (6, v) ->
+                                  `Str_expa (
+                                    trans_string_expansion (Run.matcher_token v)
+                                  )
+                              | Alt (7, v) ->
+                                  `Cmd_subs (
+                                    trans_command_substitution (Run.matcher_token v)
+                                  )
+                              | Alt (8, v) ->
+                                  `Proc_subs (
+                                    trans_process_substitution (Run.matcher_token v)
+                                  )
+                              | _ -> assert false
+                              )
                             )
                         | Alt (3, v) ->
-                            `Ansii_c_str (
-                              trans_ansii_c_string (Run.matcher_token v)
-                            )
-                        | Alt (4, v) ->
-                            `Expa (
-                              trans_expansion (Run.matcher_token v)
-                            )
-                        | Alt (5, v) ->
-                            `Simple_expa (
-                              trans_simple_expansion (Run.matcher_token v)
-                            )
-                        | Alt (6, v) ->
-                            `Str_expa (
-                              trans_string_expansion (Run.matcher_token v)
-                            )
-                        | Alt (7, v) ->
-                            `Cmd_subs (
-                              trans_command_substitution (Run.matcher_token v)
-                            )
-                        | Alt (8, v) ->
-                            `Proc_subs (
-                              trans_process_substitution (Run.matcher_token v)
+                            `Rep1_spec_char (
+                              Run.repeat1
+                                (fun v -> trans_special_character (Run.matcher_token v))
+                                v
                             )
                         | _ -> assert false
                         )
                       )
-                  | Alt (3, v) ->
-                      `Rep1_spec_char (
-                        Run.repeat1
-                          (fun v -> trans_special_character (Run.matcher_token v))
-                          v
+                  | Alt (1, v) ->
+                      `Array (
+                        trans_array_ (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
+                      `Empty_value (
+                        trans_empty_value (Run.matcher_token v)
                       )
                   | _ -> assert false
                   )
                 )
-            | Alt (1, v) ->
-                `Array (
-                  trans_array_ (Run.matcher_token v)
-                )
-            | Alt (2, v) ->
-                `Empty_value (
-                  trans_empty_value (Run.matcher_token v)
+            | _ -> assert false
+            )
+          )
+      | Alt (1, v) ->
+          `Choice_var_name_choice_EQ_choice_choice_semg_ellips (
+            (match v with
+            | Seq [v0; v1; v2] ->
+                (
+                  (match v0 with
+                  | Alt (0, v) ->
+                      `Var_name (
+                        trans_variable_name (Run.matcher_token v)
+                      )
+                  | Alt (1, v) ->
+                      `Subs (
+                        trans_subscript (Run.matcher_token v)
+                      )
+                  | _ -> assert false
+                  )
+                  ,
+                  (match v1 with
+                  | Alt (0, v) ->
+                      `EQ (
+                        Run.trans_token (Run.matcher_token v)
+                      )
+                  | Alt (1, v) ->
+                      `PLUSEQ (
+                        Run.trans_token (Run.matcher_token v)
+                      )
+                  | _ -> assert false
+                  )
+                  ,
+                  (match v2 with
+                  | Alt (0, v) ->
+                      `Choice_semg_ellips (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Semg_ellips (
+                              trans_semgrep_ellipsis (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Conc (
+                              trans_concatenation (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Choice_word (
+                              (match v with
+                              | Alt (0, v) ->
+                                  `Word (
+                                    trans_word (Run.matcher_token v)
+                                  )
+                              | Alt (1, v) ->
+                                  `Str (
+                                    trans_string_ (Run.matcher_token v)
+                                  )
+                              | Alt (2, v) ->
+                                  `Raw_str (
+                                    trans_raw_string (Run.matcher_token v)
+                                  )
+                              | Alt (3, v) ->
+                                  `Ansii_c_str (
+                                    trans_ansii_c_string (Run.matcher_token v)
+                                  )
+                              | Alt (4, v) ->
+                                  `Expa (
+                                    trans_expansion (Run.matcher_token v)
+                                  )
+                              | Alt (5, v) ->
+                                  `Simple_expa (
+                                    trans_simple_expansion (Run.matcher_token v)
+                                  )
+                              | Alt (6, v) ->
+                                  `Str_expa (
+                                    trans_string_expansion (Run.matcher_token v)
+                                  )
+                              | Alt (7, v) ->
+                                  `Cmd_subs (
+                                    trans_command_substitution (Run.matcher_token v)
+                                  )
+                              | Alt (8, v) ->
+                                  `Proc_subs (
+                                    trans_process_substitution (Run.matcher_token v)
+                                  )
+                              | _ -> assert false
+                              )
+                            )
+                        | Alt (3, v) ->
+                            `Rep1_spec_char (
+                              Run.repeat1
+                                (fun v -> trans_special_character (Run.matcher_token v))
+                                v
+                            )
+                        | _ -> assert false
+                        )
+                      )
+                  | Alt (1, v) ->
+                      `Array (
+                        trans_array_ (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
+                      `Empty_value (
+                        trans_empty_value (Run.matcher_token v)
+                      )
+                  | _ -> assert false
+                  )
                 )
             | _ -> assert false
             )

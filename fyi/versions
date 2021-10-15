@@ -20,11 +20,11 @@ Last change in file:
 ---
 File: semgrep-grammars/src/semgrep-bash/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: 1afdd484d6ac2bd4b5847e8559e19c6b27a802dd
+Latest commit in repo: 0a769da831d939d08bffa4de446c0ec16ef9b430
 Last change in file:
-  commit 1afdd484d6ac2bd4b5847e8559e19c6b27a802dd
+  commit 0a769da831d939d08bffa4de446c0ec16ef9b430
   Author: Martin Jambon <martin@mjambon.com>
-  Date:   Tue Oct 12 02:44:00 2021 -0700
+  Date:   Thu Oct 14 22:58:46 2021 -0700
   
-      Support more semgrep extensions for bash + tests
+      Add a bash grammar extension/hack to support assignment to metavariables.
 ---

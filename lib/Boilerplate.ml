@@ -20,17 +20,20 @@ let blank (env : env) () =
 let todo (env : env) _ =
    failwith "not implemented"
 
-let map_string_content (env : env) (tok : CST.string_content) =
-  (* string_content *) token env tok
+let map_special_character (env : env) (tok : CST.special_character) =
+  (* special_character *) token env tok
 
-let map_simple_heredoc_body (env : env) (tok : CST.simple_heredoc_body) =
-  (* simple_heredoc_body *) token env tok
+let map_semgrep_metavariable (env : env) (tok : CST.semgrep_metavariable) =
+  (* pattern \$[A-Z_][A-Z_0-9]* *) token env tok
+
+let map_semgrep_metavar_pluseq (env : env) (tok : CST.semgrep_metavar_pluseq) =
+  (* pattern \$[A-Z_][A-Z_0-9]*\+= *) token env tok
 
 let map_ansii_c_string (env : env) (tok : CST.ansii_c_string) =
   (* pattern "\\$'([^']|\\\\')*'" *) token env tok
 
-let map_variable_name (env : env) (tok : CST.variable_name) =
-  (* variable_name *) token env tok
+let map_word (env : env) (tok : CST.word) =
+  (* word *) token env tok
 
 let map_terminator (env : env) (x : CST.terminator) =
   (match x with
@@ -39,21 +42,6 @@ let map_terminator (env : env) (x : CST.terminator) =
   | `LF tok -> (* "\n" *) token env tok
   | `AMP tok -> (* "&" *) token env tok
   )
-
-let map_empty_value (env : env) (tok : CST.empty_value) =
-  (* empty_value *) token env tok
-
-let map_concat (env : env) (tok : CST.concat) =
-  (* concat *) token env tok
-
-let map_semgrep_metavariable (env : env) (tok : CST.semgrep_metavariable) =
-  (* pattern \$[A-Z_][A-Z_0-9]* *) token env tok
-
-let map_test_operator (env : env) (tok : CST.test_operator) =
-  (* test_operator *) token env tok
-
-let map_regex (env : env) (tok : CST.regex) =
-  (* regex *) token env tok
 
 let map_special_variable_name (env : env) (x : CST.special_variable_name) =
   (match x with
@@ -66,11 +54,29 @@ let map_special_variable_name (env : env) (x : CST.special_variable_name) =
   | `X__ tok -> (* "_" *) token env tok
   )
 
+let map_empty_value (env : env) (tok : CST.empty_value) =
+  (* empty_value *) token env tok
+
+let map_concat (env : env) (tok : CST.concat) =
+  (* concat *) token env tok
+
+let map_semgrep_metavar_eq (env : env) (tok : CST.semgrep_metavar_eq) =
+  (* pattern \$[A-Z_][A-Z_0-9]*= *) token env tok
+
+let map_string_content (env : env) (tok : CST.string_content) =
+  (* string_content *) token env tok
+
+let map_regex (env : env) (tok : CST.regex) =
+  (* regex *) token env tok
+
 let map_file_descriptor (env : env) (tok : CST.file_descriptor) =
   (* file_descriptor *) token env tok
 
-let map_word (env : env) (tok : CST.word) =
-  (* word *) token env tok
+let map_variable_name (env : env) (tok : CST.variable_name) =
+  (* variable_name *) token env tok
+
+let map_test_operator (env : env) (tok : CST.test_operator) =
+  (* test_operator *) token env tok
 
 let map_heredoc_start (env : env) (tok : CST.heredoc_start) =
   (* heredoc_start *) token env tok
@@ -90,8 +96,8 @@ let map_heredoc_body_beginning (env : env) (tok : CST.heredoc_body_beginning) =
 let map_heredoc_body_end (env : env) (tok : CST.heredoc_body_end) =
   (* heredoc_body_end *) token env tok
 
-let map_special_character (env : env) (tok : CST.special_character) =
-  (* special_character *) token env tok
+let map_simple_heredoc_body (env : env) (tok : CST.simple_heredoc_body) =
+  (* simple_heredoc_body *) token env tok
 
 let map_extended_word (env : env) (x : CST.extended_word) =
   (match x with
@@ -129,7 +135,18 @@ let map_simple_expansion (env : env) ((v1, v2) : CST.simple_expansion) =
   in
   todo env (v1, v2)
 
-let rec map_anon_choice_prim_exp_9700637 (env : env) (x : CST.anon_choice_prim_exp_9700637) =
+let rec map_anon_choice_lit_748c1d0 (env : env) (x : CST.anon_choice_lit_748c1d0) =
+  (match x with
+  | `Choice_semg_ellips x -> map_literal env x
+  | `Array (v1, v2, v3) ->
+      let v1 = (* "(" *) token env v1 in
+      let v2 = List.map (map_literal env) v2 in
+      let v3 = (* ")" *) token env v3 in
+      todo env (v1, v2, v3)
+  | `Empty_value tok -> (* empty_value *) token env tok
+  )
+
+and map_anon_choice_prim_exp_9700637 (env : env) (x : CST.anon_choice_prim_exp_9700637) =
   (match x with
   | `Choice_word x -> map_primary_expression env x
   | `Spec_char tok -> (* special_character *) token env tok
@@ -146,12 +163,6 @@ and map_anon_stmt_opt_LF_here_body_term_3efa649 (env : env) ((v1, v2, v3) : CST.
     | None -> todo env ())
   in
   let v3 = map_terminator env v3 in
-  todo env (v1, v2, v3)
-
-and map_array_ (env : env) ((v1, v2, v3) : CST.array_) =
-  let v1 = (* "(" *) token env v1 in
-  let v2 = List.map (map_literal env) v2 in
-  let v3 = (* ")" *) token env v3 in
   todo env (v1, v2, v3)
 
 and map_binary_expression (env : env) (x : CST.binary_expression) =
@@ -869,24 +880,32 @@ and map_test_command (env : env) (v1 : CST.test_command) =
       todo env (v1, v2, v3)
   )
 
-and map_variable_assignment (env : env) ((v1, v2, v3) : CST.variable_assignment) =
-  let v1 =
-    (match v1 with
-    | `Var_name tok -> (* variable_name *) token env tok
-    | `Subs x -> map_subscript env x
-    )
-  in
-  let v2 =
-    (match v2 with
-    | `EQ tok -> (* "=" *) token env tok
-    | `PLUSEQ tok -> (* "+=" *) token env tok
-    )
-  in
-  let v3 =
-    (match v3 with
-    | `Choice_semg_ellips x -> map_literal env x
-    | `Array x -> map_array_ env x
-    | `Empty_value tok -> (* empty_value *) token env tok
-    )
-  in
-  todo env (v1, v2, v3)
+and map_variable_assignment (env : env) (x : CST.variable_assignment) =
+  (match x with
+  | `Choice_semg_meta_eq_choice_choice_semg_ellips (v1, v2) ->
+      let v1 =
+        (match v1 with
+        | `Semg_meta_eq tok ->
+            (* pattern \$[A-Z_][A-Z_0-9]*= *) token env tok
+        | `Semg_meta_pluseq tok ->
+            (* pattern \$[A-Z_][A-Z_0-9]*\+= *) token env tok
+        )
+      in
+      let v2 = map_anon_choice_lit_748c1d0 env v2 in
+      todo env (v1, v2)
+  | `Choice_var_name_choice_EQ_choice_choice_semg_ellips (v1, v2, v3) ->
+      let v1 =
+        (match v1 with
+        | `Var_name tok -> (* variable_name *) token env tok
+        | `Subs x -> map_subscript env x
+        )
+      in
+      let v2 =
+        (match v2 with
+        | `EQ tok -> (* "=" *) token env tok
+        | `PLUSEQ tok -> (* "+=" *) token env tok
+        )
+      in
+      let v3 = map_anon_choice_lit_748c1d0 env v3 in
+      todo env (v1, v2, v3)
+  )
