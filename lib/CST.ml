@@ -8,29 +8,6 @@
 open! Sexplib.Conv
 open Tree_sitter_run
 
-type special_character = Token.t
-[@@deriving sexp_of]
-
-type semgrep_metavariable = Token.t (* pattern \$[A-Z_][A-Z_0-9]* *)
-[@@deriving sexp_of]
-
-type semgrep_metavar_pluseq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*\+= *)
-[@@deriving sexp_of]
-
-type ansii_c_string = Token.t (* pattern "\\$'([^']|\\\\')*'" *)
-[@@deriving sexp_of]
-
-type word = Token.t
-[@@deriving sexp_of]
-
-type terminator = [
-    `SEMI of Token.t (* ";" *)
-  | `SEMISEMI of Token.t (* ";;" *)
-  | `LF of Token.t (* "\n" *)
-  | `AMP of Token.t (* "&" *)
-]
-[@@deriving sexp_of]
-
 type special_variable_name = [
     `STAR of Token.t (* "*" *)
   | `AT of Token.t (* "@" *)
@@ -42,28 +19,54 @@ type special_variable_name = [
 ]
 [@@deriving sexp_of]
 
+type simple_heredoc_body = Token.t
+[@@deriving sexp_of]
+
+type semgrep_metavariable = Token.t (* pattern \$[A-Z_][A-Z_0-9]* *)
+[@@deriving sexp_of]
+
+type ansii_c_string = Token.t (* pattern "\\$'([^']|\\\\')*'" *)
+[@@deriving sexp_of]
+
+type test_operator = Token.t
+[@@deriving sexp_of]
+
+type string_content = Token.t
+[@@deriving sexp_of]
+
 type empty_value = Token.t
 [@@deriving sexp_of]
 
 type concat = Token.t
 [@@deriving sexp_of]
 
-type semgrep_metavar_eq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*= *)
+type semgrep_metavar_pluseq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*\+= *)
 [@@deriving sexp_of]
 
-type string_content = Token.t
+type terminator = [
+    `SEMI of Token.t (* ";" *)
+  | `SEMISEMI of Token.t (* ";;" *)
+  | `LF of Token.t (* "\n" *)
+  | `AMP of Token.t (* "&" *)
+]
 [@@deriving sexp_of]
 
 type regex = Token.t
 [@@deriving sexp_of]
 
+type special_character = Token.t
+[@@deriving sexp_of]
+
 type file_descriptor = Token.t
 [@@deriving sexp_of]
 
-type variable_name = Token.t
+type semgrep_metavar_eq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*= *)
 [@@deriving sexp_of]
 
-type test_operator = Token.t
+type word = Token.t
+[@@deriving sexp_of]
+
+type variable_name = Token.t
 [@@deriving sexp_of]
 
 type heredoc_start = Token.t
@@ -82,9 +85,6 @@ type heredoc_body_beginning = Token.t
 [@@deriving sexp_of]
 
 type heredoc_body_end = Token.t
-[@@deriving sexp_of]
-
-type simple_heredoc_body = Token.t
 [@@deriving sexp_of]
 
 type extended_word = [
@@ -116,8 +116,8 @@ type simple_expansion = (
 )
 [@@deriving sexp_of]
 
-type anon_choice_lit_748c1d0 = [
-    `Choice_semg_ellips of literal
+type anon_choice_lit_bbf16c7 = [
+    `Choice_conc of literal
   | `Array of (
         Token.t (* "(" *)
       * literal list (* zero or more *)
@@ -185,18 +185,17 @@ and command = (
       list (* zero or more *)
   * command_name
   * [
-        `Choice_semg_ellips of literal
-      | `Choice_EQTILDE_choice_choice_semg_ellips of (
+        `Choice_conc of literal
+      | `Choice_EQTILDE_choice_choice_conc of (
             [ `EQTILDE of Token.t (* "=~" *) | `EQEQ of Token.t (* "==" *) ]
-          * [ `Choice_semg_ellips of literal | `Regex of regex (*tok*) ]
+          * [ `Choice_conc of literal | `Regex of regex (*tok*) ]
         )
     ]
       list (* zero or more *)
 )
 
 and command_name = [
-    `Semg_ellips of Token.t (* "..." *)
-  | `Conc of concatenation
+    `Conc of concatenation
   | `Choice_word of primary_expression
   | `Rep1_spec_char of special_character (*tok*) list (* one or more *)
 ]
@@ -240,46 +239,41 @@ and elif_clause = (
 
 and else_clause = (Token.t (* "else" *) * statements2 option)
 
-and expansion = [
-    `DOLLARLCURL_semg_ellips_RCURL of (
-        Token.t (* "${" *) * Token.t (* "..." *) * Token.t (* "}" *)
-    )
-  | `DOLLARLCURL_opt_choice_HASH_opt_choice_var_name_EQ_opt_choice_semg_ellips_RCURL of (
-        Token.t (* "${" *)
-      * [ `HASH of Token.t (* "#" *) | `BANG of Token.t (* "!" *) ] option
-      * [
-            `Var_name_EQ_opt_choice_semg_ellips of (
-                variable_name (*tok*)
-              * Token.t (* "=" *)
-              * literal option
-            )
-          | `Choice_subs_opt_SLASH_opt_regex_rep_choice_choice_semg_ellips of (
-                [
-                    `Subs of subscript
-                  | `Choice_semg_meta of simple_variable_name
-                  | `Choice_STAR of special_variable_name
-                ]
-              * (Token.t (* / *) * regex (*tok*) option) option
-              * [
-                    `Choice_semg_ellips of literal
-                  | `COLON of Token.t (* ":" *)
-                  | `COLONQMARK of Token.t (* ":?" *)
-                  | `EQ of Token.t (* "=" *)
-                  | `COLONDASH of Token.t (* ":-" *)
-                  | `PERC of Token.t (* "%" *)
-                  | `DASH of Token.t (* "-" *)
-                  | `HASH of Token.t (* "#" *)
-                ]
-                  list (* zero or more *)
-            )
-        ]
-          option
-      * Token.t (* "}" *)
-    )
-]
+and expansion = (
+    Token.t (* "${" *)
+  * [ `HASH of Token.t (* "#" *) | `BANG of Token.t (* "!" *) ] option
+  * [
+        `Var_name_EQ_opt_choice_conc of (
+            variable_name (*tok*)
+          * Token.t (* "=" *)
+          * literal option
+        )
+      | `Choice_subs_opt_SLASH_opt_regex_rep_choice_choice_conc of (
+            [
+                `Subs of subscript
+              | `Choice_semg_meta of simple_variable_name
+              | `Choice_STAR of special_variable_name
+            ]
+          * (Token.t (* / *) * regex (*tok*) option) option
+          * [
+                `Choice_conc of literal
+              | `COLON of Token.t (* ":" *)
+              | `COLONQMARK of Token.t (* ":?" *)
+              | `EQ of Token.t (* "=" *)
+              | `COLONDASH of Token.t (* ":-" *)
+              | `PERC of Token.t (* "%" *)
+              | `DASH of Token.t (* "-" *)
+              | `HASH of Token.t (* "#" *)
+            ]
+              list (* zero or more *)
+        )
+    ]
+      option
+  * Token.t (* "}" *)
+)
 
 and expression = [
-    `Choice_semg_ellips of literal
+    `Choice_conc of literal
   | `Un_exp of (
         [ `BANG of Token.t (* "!" *) | `Test_op of test_operator (*tok*) ]
       * expression
@@ -337,8 +331,7 @@ and last_case_item = (
 )
 
 and literal = [
-    `Semg_ellips of Token.t (* "..." *)
-  | `Conc of concatenation
+    `Conc of concatenation
   | `Choice_word of primary_expression
   | `Rep1_spec_char of special_character (*tok*) list (* one or more *)
 ]
@@ -385,7 +378,7 @@ and statement = [
           | `Local of Token.t (* "local" *)
         ]
       * [
-            `Choice_semg_ellips of literal
+            `Choice_conc of literal
           | `Choice_semg_meta of simple_variable_name
           | `Var_assign of variable_assignment
         ]
@@ -397,7 +390,7 @@ and statement = [
           | `Unse of Token.t (* "unsetenv" *)
         ]
       * [
-            `Choice_semg_ellips of literal
+            `Choice_conc of literal
           | `Choice_semg_meta of simple_variable_name
         ]
           list (* zero or more *)
@@ -531,22 +524,19 @@ and test_command = [
 ]
 
 and variable_assignment = [
-    `Choice_semg_meta_eq_choice_choice_semg_ellips of (
+    `Choice_semg_meta_eq_choice_choice_conc of (
         [
             `Semg_meta_eq of semgrep_metavar_eq (*tok*)
           | `Semg_meta_pluseq of semgrep_metavar_pluseq (*tok*)
         ]
-      * anon_choice_lit_748c1d0
+      * anon_choice_lit_bbf16c7
     )
-  | `Choice_var_name_choice_EQ_choice_choice_semg_ellips of (
+  | `Choice_var_name_choice_EQ_choice_choice_conc of (
         [ `Var_name of variable_name (*tok*) | `Subs of subscript ]
       * [ `EQ of Token.t (* "=" *) | `PLUSEQ of Token.t (* "+=" *) ]
-      * anon_choice_lit_748c1d0
+      * anon_choice_lit_bbf16c7
     )
 ]
-[@@deriving sexp_of]
-
-type semgrep_ellipsis (* inlined *) = Token.t (* "..." *)
 [@@deriving sexp_of]
 
 type comment (* inlined *) = Token.t
@@ -593,7 +583,7 @@ type declaration_command (* inlined *) = (
       | `Local of Token.t (* "local" *)
     ]
   * [
-        `Choice_semg_ellips of literal
+        `Choice_conc of literal
       | `Choice_semg_meta of simple_variable_name
       | `Var_assign of variable_assignment
     ]
@@ -709,10 +699,7 @@ type unary_expression (* inlined *) = (
 
 type unset_command (* inlined *) = (
     [ `Unset of Token.t (* "unset" *) | `Unse of Token.t (* "unsetenv" *) ]
-  * [
-        `Choice_semg_ellips of literal
-      | `Choice_semg_meta of simple_variable_name
-    ]
+  * [ `Choice_conc of literal | `Choice_semg_meta of simple_variable_name ]
       list (* zero or more *)
 )
 [@@deriving sexp_of]

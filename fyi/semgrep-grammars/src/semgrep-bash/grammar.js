@@ -2,6 +2,9 @@
   semgrep-bash
 
   Extends the standard bash grammar with semgrep pattern constructs.
+
+  This adds special treatment for semgrep metavariables.
+  Semgrep ellipses are covered by the 'word' rule.
 */
 
 const base_grammar = require('tree-sitter-bash/grammar');
@@ -39,22 +42,6 @@ module.exports = grammar(base_grammar, {
       previous
     ),
 
-    // An item in a command line, subject to expansion into multiple elements,
-    // such as
-    // - hello
-    // - "$x".z
-    // - $args
-    // - 'hello world'
-    // - $(ls)
-    // etc.
-    //
-    _literal: ($, previous) => {
-      return choice(
-        $.semgrep_ellipsis,
-        ...previous.members
-      );
-    },
-
     // We only want to extend simple variable names, not fragments of
     // command-line arguments. See 'literal'.
     _extended_word: $ => choice(
@@ -84,26 +71,8 @@ module.exports = grammar(base_grammar, {
       )
     ),
 
-    // ${X} etc.
-    // The point of supporting an ellipsis here is to detect unquoted
-    // expansions such as ${X} because "${X}" is usually what the programmer
-    // wants. The variable inside the expansion can also be captured
-    // using a metavariable:
-    // - ${HOME#/} expands the HOME variable and removes the leading '/'.
-    // - The pattern ${...} will match the whole $HOME, ${HOME}, and ${HOME#/}.
-    // - The pattern ${$X} will match only the variable name 'HOME' in $HOME,
-    //   ${HOME}, and ${HOME#/}.
-    // - The pattern ${$X#/} is strictly more specific than ${$X} as it matches
-    //   ${HOME#/} but not ${HOME} or ${HOME%/}.
-    //
-    expansion: ($, previous) => choice(
-      seq('${', $.semgrep_ellipsis, '}'),
-      previous
-    ),
-
     semgrep_metavariable: $ => /\$[A-Z_][A-Z_0-9]*/,
     semgrep_metavar_eq: $ => /\$[A-Z_][A-Z_0-9]*=/,
     semgrep_metavar_pluseq: $ => /\$[A-Z_][A-Z_0-9]*\+=/,
-    semgrep_ellipsis: $ => '...',
   }
 });
