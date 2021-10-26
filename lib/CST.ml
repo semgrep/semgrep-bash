@@ -8,6 +8,29 @@
 open! Sexplib.Conv
 open Tree_sitter_run
 
+type special_character = Token.t
+[@@deriving sexp_of]
+
+type semgrep_metavariable = Token.t (* pattern \$[A-Z_][A-Z_0-9]* *)
+[@@deriving sexp_of]
+
+type semgrep_metavar_pluseq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*\+= *)
+[@@deriving sexp_of]
+
+type ansii_c_string = Token.t (* pattern "\\$'([^']|\\\\')*'" *)
+[@@deriving sexp_of]
+
+type word = Token.t
+[@@deriving sexp_of]
+
+type terminator = [
+    `SEMI of Token.t (* ";" *)
+  | `SEMISEMI of Token.t (* ";;" *)
+  | `LF of Token.t (* "\n" *)
+  | `AMP of Token.t (* "&" *)
+]
+[@@deriving sexp_of]
+
 type special_variable_name = [
     `STAR of Token.t (* "*" *)
   | `AT of Token.t (* "@" *)
@@ -19,54 +42,31 @@ type special_variable_name = [
 ]
 [@@deriving sexp_of]
 
-type simple_heredoc_body = Token.t
-[@@deriving sexp_of]
-
-type semgrep_metavariable = Token.t (* pattern \$[A-Z_][A-Z_0-9]* *)
-[@@deriving sexp_of]
-
-type ansii_c_string = Token.t (* pattern "\\$'([^']|\\\\')*'" *)
-[@@deriving sexp_of]
-
-type test_operator = Token.t
-[@@deriving sexp_of]
-
-type string_content = Token.t
-[@@deriving sexp_of]
-
 type empty_value = Token.t
 [@@deriving sexp_of]
 
 type concat = Token.t
 [@@deriving sexp_of]
 
-type semgrep_metavar_pluseq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*\+= *)
+type semgrep_metavar_eq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*= *)
 [@@deriving sexp_of]
 
-type terminator = [
-    `SEMI of Token.t (* ";" *)
-  | `SEMISEMI of Token.t (* ";;" *)
-  | `LF of Token.t (* "\n" *)
-  | `AMP of Token.t (* "&" *)
-]
+type string_content = Token.t
 [@@deriving sexp_of]
 
-type regex = Token.t
-[@@deriving sexp_of]
-
-type special_character = Token.t
+type raw_string = Token.t (* pattern "'[^']*'" *)
 [@@deriving sexp_of]
 
 type file_descriptor = Token.t
 [@@deriving sexp_of]
 
-type semgrep_metavar_eq = Token.t (* pattern \$[A-Z_][A-Z_0-9]*= *)
-[@@deriving sexp_of]
-
-type word = Token.t
+type regex = Token.t
 [@@deriving sexp_of]
 
 type variable_name = Token.t
+[@@deriving sexp_of]
+
+type test_operator = Token.t
 [@@deriving sexp_of]
 
 type heredoc_start = Token.t
@@ -78,13 +78,13 @@ type heredoc_body_middle = Token.t
 type pat_42e353e = Token.t (* pattern \w+ *)
 [@@deriving sexp_of]
 
-type raw_string = Token.t (* pattern "'[^']*'" *)
-[@@deriving sexp_of]
-
 type heredoc_body_beginning = Token.t
 [@@deriving sexp_of]
 
 type heredoc_body_end = Token.t
+[@@deriving sexp_of]
+
+type simple_heredoc_body = Token.t
 [@@deriving sexp_of]
 
 type extended_word = [
@@ -99,21 +99,21 @@ type heredoc_redirect = (
 )
 [@@deriving sexp_of]
 
-type simple_variable_name = [
-    `Semg_meta of semgrep_metavariable (*tok*)
-  | `Pat_42e353e of pat_42e353e (*tok*)
-]
-[@@deriving sexp_of]
-
 type simple_expansion = (
     Token.t (* "$" *)
   * [
-        `Choice_semg_meta of simple_variable_name
+        `Orig_simple_var_name of pat_42e353e (*tok*)
       | `Choice_STAR of special_variable_name
       | `BANG of Token.t (* "!" *)
       | `HASH of Token.t (* "#" *)
     ]
 )
+[@@deriving sexp_of]
+
+type simple_variable_name = [
+    `Semg_meta of semgrep_metavariable (*tok*)
+  | `Pat_42e353e of pat_42e353e (*tok*)
+]
 [@@deriving sexp_of]
 
 type anon_choice_lit_bbf16c7 = [
@@ -540,6 +540,9 @@ and variable_assignment = [
 [@@deriving sexp_of]
 
 type comment (* inlined *) = Token.t
+[@@deriving sexp_of]
+
+type orig_simple_variable_name (* inlined *) = pat_42e353e (*tok*)
 [@@deriving sexp_of]
 
 type array_ (* inlined *) = (

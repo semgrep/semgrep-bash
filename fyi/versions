@@ -20,11 +20,11 @@ Last change in file:
 ---
 File: semgrep-grammars/src/semgrep-bash/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: e4129aa3078a7db2ca00d4393a0561b50f6cf931
+Latest commit in repo: de0b2fa84e84b4759e7ff582cb14443faa9635d7
 Last change in file:
-  commit e4129aa3078a7db2ca00d4393a0561b50f6cf931
+  commit d7067784b84c10d2b16b04e81330a6f084065e85
   Author: Martin Jambon <martin@mjambon.com>
-  Date:   Thu Oct 21 20:32:44 2021 -0700
+  Date:   Mon Oct 25 17:44:02 2021 -0700
   
-      Remove special construct for semgrep_ellipsis, solving precedence issues.
+      Parse '$$X' correctly
 ---
