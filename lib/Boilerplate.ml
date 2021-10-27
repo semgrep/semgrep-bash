@@ -147,9 +147,9 @@ let rec map_anon_choice_lit_bbf16c7 (env : env) (x : CST.anon_choice_lit_bbf16c7
   | `Empty_value tok -> (* empty_value *) token env tok
   )
 
-and map_anon_choice_prim_exp_9700637 (env : env) (x : CST.anon_choice_prim_exp_9700637) =
+and map_anon_choice_prim_exp_65e2c2e (env : env) (x : CST.anon_choice_prim_exp_65e2c2e) =
   (match x with
-  | `Choice_word x -> map_primary_expression env x
+  | `Choice_semg_deep_exp x -> map_primary_expression env x
   | `Spec_char tok -> (* special_character *) token env tok
   )
 
@@ -262,7 +262,7 @@ and map_command (env : env) ((v1, v2, v3) : CST.command) =
 and map_command_name (env : env) (x : CST.command_name) =
   (match x with
   | `Conc x -> map_concatenation env x
-  | `Choice_word x -> map_primary_expression env x
+  | `Choice_semg_deep_exp x -> map_primary_expression env x
   | `Rep1_spec_char xs ->
       List.map (token env (* special_character *)) xs
   )
@@ -297,11 +297,11 @@ and map_compound_statement (env : env) ((v1, v2, v3) : CST.compound_statement) =
   todo env (v1, v2, v3)
 
 and map_concatenation (env : env) ((v1, v2, v3) : CST.concatenation) =
-  let v1 = map_anon_choice_prim_exp_9700637 env v1 in
+  let v1 = map_anon_choice_prim_exp_65e2c2e env v1 in
   let v2 =
     List.map (fun (v1, v2) ->
       let v1 = (* concat *) token env v1 in
-      let v2 = map_anon_choice_prim_exp_9700637 env v2 in
+      let v2 = map_anon_choice_prim_exp_65e2c2e env v2 in
       todo env (v1, v2)
     ) v2
   in
@@ -514,41 +514,43 @@ and map_last_case_item (env : env) ((v1, v2, v3, v4, v5) : CST.last_case_item) =
 and map_literal (env : env) (x : CST.literal) =
   (match x with
   | `Conc x -> map_concatenation env x
-  | `Choice_word x -> map_primary_expression env x
+  | `Choice_semg_deep_exp x -> map_primary_expression env x
   | `Rep1_spec_char xs ->
       List.map (token env (* special_character *)) xs
   )
 
 and map_primary_expression (env : env) (x : CST.primary_expression) =
   (match x with
-  | `Word tok -> (* word *) token env tok
-  | `Str x -> map_string_ env x
-  | `Raw_str tok -> (* pattern "'[^']*'" *) token env tok
-  | `Ansii_c_str tok ->
-      (* pattern "\\$'([^']|\\\\')*'" *) token env tok
-  | `Expa x -> map_expansion env x
-  | `Simple_expa x -> map_simple_expansion env x
-  | `Str_expa (v1, v2) ->
-      let v1 = (* "$" *) token env v1 in
-      let v2 =
-        (match v2 with
-        | `Str x -> map_string_ env x
-        | `Raw_str tok -> (* pattern "'[^']*'" *) token env tok
-        )
-      in
-      todo env (v1, v2)
-  | `Cmd_subs x -> map_command_substitution env x
-  | `Proc_subs (v1, v2, v3) ->
-      let v1 =
-        (match v1 with
-        | `LTLPAR tok -> (* "<(" *) token env tok
-        | `GTLPAR tok -> (* ">(" *) token env tok
-        )
-      in
-      let v2 = map_statements env v2 in
-      let v3 = (* ")" *) token env v3 in
+  | `Semg_deep_exp (v1, v2, v3) ->
+      let v1 = (* "<..." *) token env v1 in
+      let v2 = map_literal env v2 in
+      let v3 = (* "...>" *) token env v3 in
       todo env (v1, v2, v3)
+  | `Choice_word x ->
+      (match x with
+      | `Word tok -> (* word *) token env tok
+      | `Str x -> map_string_ env x
+      | `Raw_str tok -> (* pattern "'[^']*'" *) token env tok
+      | `Ansii_c_str tok ->
+          (* pattern "\\$'([^']|\\\\')*'" *) token env tok
+      | `Expa x -> map_expansion env x
+      | `Simple_expa x -> map_simple_expansion env x
+      | `Str_expa x -> map_string_expansion env x
+      | `Cmd_subs x -> map_command_substitution env x
+      | `Proc_subs x -> map_process_substitution env x
+      )
   )
+
+and map_process_substitution (env : env) ((v1, v2, v3) : CST.process_substitution) =
+  let v1 =
+    (match v1 with
+    | `LTLPAR tok -> (* "<(" *) token env tok
+    | `GTLPAR tok -> (* ">(" *) token env tok
+    )
+  in
+  let v2 = map_statements env v2 in
+  let v3 = (* ")" *) token env v3 in
+  todo env (v1, v2, v3)
 
 and map_program (env : env) (opt : CST.program) =
   (match opt with
@@ -823,6 +825,16 @@ and map_string_ (env : env) ((v1, v2, v3, v4) : CST.string_) =
   in
   let v4 = (* "\"" *) token env v4 in
   todo env (v1, v2, v3, v4)
+
+and map_string_expansion (env : env) ((v1, v2) : CST.string_expansion) =
+  let v1 = (* "$" *) token env v1 in
+  let v2 =
+    (match v2 with
+    | `Str x -> map_string_ env x
+    | `Raw_str tok -> (* pattern "'[^']*'" *) token env tok
+    )
+  in
+  todo env (v1, v2)
 
 and map_subscript (env : env) ((v1, v2, v3, v4, v5, v6) : CST.subscript) =
   let v1 = (* variable_name *) token env v1 in

@@ -102,15 +102,18 @@ let children_regexps : (string * Run.exp option) list = [
         Alt [|
           Token (Name "concatenation");
           Alt [|
-            Token (Name "word");
-            Token (Name "string");
-            Token (Name "raw_string");
-            Token (Name "ansii_c_string");
-            Token (Name "expansion");
-            Token (Name "simple_expansion");
-            Token (Name "string_expansion");
-            Token (Name "command_substitution");
-            Token (Name "process_substitution");
+            Token (Name "semgrep_deep_expression");
+            Alt [|
+              Token (Name "word");
+              Token (Name "string");
+              Token (Name "raw_string");
+              Token (Name "ansii_c_string");
+              Token (Name "expansion");
+              Token (Name "simple_expansion");
+              Token (Name "string_expansion");
+              Token (Name "command_substitution");
+              Token (Name "process_substitution");
+            |];
           |];
           Repeat1 (
             Token (Name "special_character");
@@ -196,15 +199,18 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Token (Name "concatenation");
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Repeat1 (
           Token (Name "special_character");
@@ -216,15 +222,18 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Token (Name "concatenation");
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Repeat1 (
               Token (Name "special_character");
@@ -252,15 +261,18 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Token (Name "concatenation");
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Repeat1 (
           Token (Name "special_character");
@@ -307,15 +319,18 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Token (Name "concatenation");
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Repeat1 (
               Token (Name "special_character");
@@ -330,15 +345,18 @@ let children_regexps : (string * Run.exp option) list = [
               Alt [|
                 Token (Name "concatenation");
                 Alt [|
-                  Token (Name "word");
-                  Token (Name "string");
-                  Token (Name "raw_string");
-                  Token (Name "ansii_c_string");
-                  Token (Name "expansion");
-                  Token (Name "simple_expansion");
-                  Token (Name "string_expansion");
-                  Token (Name "command_substitution");
-                  Token (Name "process_substitution");
+                  Token (Name "semgrep_deep_expression");
+                  Alt [|
+                    Token (Name "word");
+                    Token (Name "string");
+                    Token (Name "raw_string");
+                    Token (Name "ansii_c_string");
+                    Token (Name "expansion");
+                    Token (Name "simple_expansion");
+                    Token (Name "string_expansion");
+                    Token (Name "command_substitution");
+                    Token (Name "process_substitution");
+                  |];
                 |];
                 Repeat1 (
                   Token (Name "special_character");
@@ -356,15 +374,18 @@ let children_regexps : (string * Run.exp option) list = [
     Alt [|
       Token (Name "concatenation");
       Alt [|
-        Token (Name "word");
-        Token (Name "string");
-        Token (Name "raw_string");
-        Token (Name "ansii_c_string");
-        Token (Name "expansion");
-        Token (Name "simple_expansion");
-        Token (Name "string_expansion");
-        Token (Name "command_substitution");
-        Token (Name "process_substitution");
+        Token (Name "semgrep_deep_expression");
+        Alt [|
+          Token (Name "word");
+          Token (Name "string");
+          Token (Name "raw_string");
+          Token (Name "ansii_c_string");
+          Token (Name "expansion");
+          Token (Name "simple_expansion");
+          Token (Name "string_expansion");
+          Token (Name "command_substitution");
+          Token (Name "process_substitution");
+        |];
       |];
       Repeat1 (
         Token (Name "special_character");
@@ -440,15 +461,18 @@ let children_regexps : (string * Run.exp option) list = [
     Seq [
       Alt [|
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Token (Name "special_character");
       |];
@@ -457,15 +481,18 @@ let children_regexps : (string * Run.exp option) list = [
           Token (Name "concat");
           Alt [|
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Token (Name "special_character");
           |];
@@ -494,15 +521,18 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Token (Name "concatenation");
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Repeat1 (
               Token (Name "special_character");
@@ -668,15 +698,18 @@ let children_regexps : (string * Run.exp option) list = [
               Alt [|
                 Token (Name "concatenation");
                 Alt [|
-                  Token (Name "word");
-                  Token (Name "string");
-                  Token (Name "raw_string");
-                  Token (Name "ansii_c_string");
-                  Token (Name "expansion");
-                  Token (Name "simple_expansion");
-                  Token (Name "string_expansion");
-                  Token (Name "command_substitution");
-                  Token (Name "process_substitution");
+                  Token (Name "semgrep_deep_expression");
+                  Alt [|
+                    Token (Name "word");
+                    Token (Name "string");
+                    Token (Name "raw_string");
+                    Token (Name "ansii_c_string");
+                    Token (Name "expansion");
+                    Token (Name "simple_expansion");
+                    Token (Name "string_expansion");
+                    Token (Name "command_substitution");
+                    Token (Name "process_substitution");
+                  |];
                 |];
                 Repeat1 (
                   Token (Name "special_character");
@@ -714,15 +747,18 @@ let children_regexps : (string * Run.exp option) list = [
                 Alt [|
                   Token (Name "concatenation");
                   Alt [|
-                    Token (Name "word");
-                    Token (Name "string");
-                    Token (Name "raw_string");
-                    Token (Name "ansii_c_string");
-                    Token (Name "expansion");
-                    Token (Name "simple_expansion");
-                    Token (Name "string_expansion");
-                    Token (Name "command_substitution");
-                    Token (Name "process_substitution");
+                    Token (Name "semgrep_deep_expression");
+                    Alt [|
+                      Token (Name "word");
+                      Token (Name "string");
+                      Token (Name "raw_string");
+                      Token (Name "ansii_c_string");
+                      Token (Name "expansion");
+                      Token (Name "simple_expansion");
+                      Token (Name "string_expansion");
+                      Token (Name "command_substitution");
+                      Token (Name "process_substitution");
+                    |];
                   |];
                   Repeat1 (
                     Token (Name "special_character");
@@ -749,15 +785,18 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Token (Name "concatenation");
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Repeat1 (
           Token (Name "special_character");
@@ -789,15 +828,18 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Token (Name "concatenation");
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Repeat1 (
           Token (Name "special_character");
@@ -823,15 +865,18 @@ let children_regexps : (string * Run.exp option) list = [
             Alt [|
               Token (Name "concatenation");
               Alt [|
-                Token (Name "word");
-                Token (Name "string");
-                Token (Name "raw_string");
-                Token (Name "ansii_c_string");
-                Token (Name "expansion");
-                Token (Name "simple_expansion");
-                Token (Name "string_expansion");
-                Token (Name "command_substitution");
-                Token (Name "process_substitution");
+                Token (Name "semgrep_deep_expression");
+                Alt [|
+                  Token (Name "word");
+                  Token (Name "string");
+                  Token (Name "raw_string");
+                  Token (Name "ansii_c_string");
+                  Token (Name "expansion");
+                  Token (Name "simple_expansion");
+                  Token (Name "string_expansion");
+                  Token (Name "command_substitution");
+                  Token (Name "process_substitution");
+                |];
               |];
               Repeat1 (
                 Token (Name "special_character");
@@ -901,15 +946,18 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Token (Name "concatenation");
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Repeat1 (
           Token (Name "special_character");
@@ -975,15 +1023,18 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Token (Name "concatenation");
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Repeat1 (
           Token (Name "special_character");
@@ -995,15 +1046,18 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Token (Name "concatenation");
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Repeat1 (
               Token (Name "special_character");
@@ -1185,6 +1239,33 @@ let children_regexps : (string * Run.exp option) list = [
       );
     ];
   );
+  "semgrep_deep_expression",
+  Some (
+    Seq [
+      Token (Literal "<...");
+      Alt [|
+        Token (Name "concatenation");
+        Alt [|
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
+        |];
+        Repeat1 (
+          Token (Name "special_character");
+        );
+      |];
+      Token (Literal "...>");
+    ];
+  );
   "statements",
   Some (
     Seq [
@@ -1304,15 +1385,18 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Token (Name "concatenation");
         Alt [|
-          Token (Name "word");
-          Token (Name "string");
-          Token (Name "raw_string");
-          Token (Name "ansii_c_string");
-          Token (Name "expansion");
-          Token (Name "simple_expansion");
-          Token (Name "string_expansion");
-          Token (Name "command_substitution");
-          Token (Name "process_substitution");
+          Token (Name "semgrep_deep_expression");
+          Alt [|
+            Token (Name "word");
+            Token (Name "string");
+            Token (Name "raw_string");
+            Token (Name "ansii_c_string");
+            Token (Name "expansion");
+            Token (Name "simple_expansion");
+            Token (Name "string_expansion");
+            Token (Name "command_substitution");
+            Token (Name "process_substitution");
+          |];
         |];
         Repeat1 (
           Token (Name "special_character");
@@ -1419,15 +1503,18 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Token (Name "concatenation");
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Repeat1 (
               Token (Name "special_character");
@@ -1453,15 +1540,18 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Token (Name "concatenation");
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Repeat1 (
               Token (Name "special_character");
@@ -1484,15 +1574,18 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Token (Name "concatenation");
             Alt [|
-              Token (Name "word");
-              Token (Name "string");
-              Token (Name "raw_string");
-              Token (Name "ansii_c_string");
-              Token (Name "expansion");
-              Token (Name "simple_expansion");
-              Token (Name "string_expansion");
-              Token (Name "command_substitution");
-              Token (Name "process_substitution");
+              Token (Name "semgrep_deep_expression");
+              Alt [|
+                Token (Name "word");
+                Token (Name "string");
+                Token (Name "raw_string");
+                Token (Name "ansii_c_string");
+                Token (Name "expansion");
+                Token (Name "simple_expansion");
+                Token (Name "string_expansion");
+                Token (Name "command_substitution");
+                Token (Name "process_substitution");
+              |];
             |];
             Repeat1 (
               Token (Name "special_character");
@@ -1746,43 +1839,53 @@ let rec trans_array_ ((kind, body) : mt) : CST.array_ =
                       trans_concatenation (Run.matcher_token v)
                     )
                 | Alt (1, v) ->
-                    `Choice_word (
+                    `Choice_semg_deep_exp (
                       (match v with
                       | Alt (0, v) ->
-                          `Word (
-                            trans_word (Run.matcher_token v)
+                          `Semg_deep_exp (
+                            trans_semgrep_deep_expression (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
-                          `Str (
-                            trans_string_ (Run.matcher_token v)
-                          )
-                      | Alt (2, v) ->
-                          `Raw_str (
-                            trans_raw_string (Run.matcher_token v)
-                          )
-                      | Alt (3, v) ->
-                          `Ansii_c_str (
-                            trans_ansii_c_string (Run.matcher_token v)
-                          )
-                      | Alt (4, v) ->
-                          `Expa (
-                            trans_expansion (Run.matcher_token v)
-                          )
-                      | Alt (5, v) ->
-                          `Simple_expa (
-                            trans_simple_expansion (Run.matcher_token v)
-                          )
-                      | Alt (6, v) ->
-                          `Str_expa (
-                            trans_string_expansion (Run.matcher_token v)
-                          )
-                      | Alt (7, v) ->
-                          `Cmd_subs (
-                            trans_command_substitution (Run.matcher_token v)
-                          )
-                      | Alt (8, v) ->
-                          `Proc_subs (
-                            trans_process_substitution (Run.matcher_token v)
+                          `Choice_word (
+                            (match v with
+                            | Alt (0, v) ->
+                                `Word (
+                                  trans_word (Run.matcher_token v)
+                                )
+                            | Alt (1, v) ->
+                                `Str (
+                                  trans_string_ (Run.matcher_token v)
+                                )
+                            | Alt (2, v) ->
+                                `Raw_str (
+                                  trans_raw_string (Run.matcher_token v)
+                                )
+                            | Alt (3, v) ->
+                                `Ansii_c_str (
+                                  trans_ansii_c_string (Run.matcher_token v)
+                                )
+                            | Alt (4, v) ->
+                                `Expa (
+                                  trans_expansion (Run.matcher_token v)
+                                )
+                            | Alt (5, v) ->
+                                `Simple_expa (
+                                  trans_simple_expansion (Run.matcher_token v)
+                                )
+                            | Alt (6, v) ->
+                                `Str_expa (
+                                  trans_string_expansion (Run.matcher_token v)
+                                )
+                            | Alt (7, v) ->
+                                `Cmd_subs (
+                                  trans_command_substitution (Run.matcher_token v)
+                                )
+                            | Alt (8, v) ->
+                                `Proc_subs (
+                                  trans_process_substitution (Run.matcher_token v)
+                                )
+                            | _ -> assert false
+                            )
                           )
                       | _ -> assert false
                       )
@@ -2003,43 +2106,53 @@ and trans_case_item ((kind, body) : mt) : CST.case_item =
                   trans_concatenation (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -2065,43 +2178,53 @@ and trans_case_item ((kind, body) : mt) : CST.case_item =
                             trans_concatenation (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
-                          `Choice_word (
+                          `Choice_semg_deep_exp (
                             (match v with
                             | Alt (0, v) ->
-                                `Word (
-                                  trans_word (Run.matcher_token v)
+                                `Semg_deep_exp (
+                                  trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Str (
-                                  trans_string_ (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
-                                `Raw_str (
-                                  trans_raw_string (Run.matcher_token v)
-                                )
-                            | Alt (3, v) ->
-                                `Ansii_c_str (
-                                  trans_ansii_c_string (Run.matcher_token v)
-                                )
-                            | Alt (4, v) ->
-                                `Expa (
-                                  trans_expansion (Run.matcher_token v)
-                                )
-                            | Alt (5, v) ->
-                                `Simple_expa (
-                                  trans_simple_expansion (Run.matcher_token v)
-                                )
-                            | Alt (6, v) ->
-                                `Str_expa (
-                                  trans_string_expansion (Run.matcher_token v)
-                                )
-                            | Alt (7, v) ->
-                                `Cmd_subs (
-                                  trans_command_substitution (Run.matcher_token v)
-                                )
-                            | Alt (8, v) ->
-                                `Proc_subs (
-                                  trans_process_substitution (Run.matcher_token v)
+                                `Choice_word (
+                                  (match v with
+                                  | Alt (0, v) ->
+                                      `Word (
+                                        trans_word (Run.matcher_token v)
+                                      )
+                                  | Alt (1, v) ->
+                                      `Str (
+                                        trans_string_ (Run.matcher_token v)
+                                      )
+                                  | Alt (2, v) ->
+                                      `Raw_str (
+                                        trans_raw_string (Run.matcher_token v)
+                                      )
+                                  | Alt (3, v) ->
+                                      `Ansii_c_str (
+                                        trans_ansii_c_string (Run.matcher_token v)
+                                      )
+                                  | Alt (4, v) ->
+                                      `Expa (
+                                        trans_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (5, v) ->
+                                      `Simple_expa (
+                                        trans_simple_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (6, v) ->
+                                      `Str_expa (
+                                        trans_string_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (7, v) ->
+                                      `Cmd_subs (
+                                        trans_command_substitution (Run.matcher_token v)
+                                      )
+                                  | Alt (8, v) ->
+                                      `Proc_subs (
+                                        trans_process_substitution (Run.matcher_token v)
+                                      )
+                                  | _ -> assert false
+                                  )
                                 )
                             | _ -> assert false
                             )
@@ -2164,43 +2287,53 @@ and trans_case_statement ((kind, body) : mt) : CST.case_statement =
                   trans_concatenation (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -2315,43 +2448,53 @@ and trans_command ((kind, body) : mt) : CST.command =
                             trans_concatenation (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
-                          `Choice_word (
+                          `Choice_semg_deep_exp (
                             (match v with
                             | Alt (0, v) ->
-                                `Word (
-                                  trans_word (Run.matcher_token v)
+                                `Semg_deep_exp (
+                                  trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Str (
-                                  trans_string_ (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
-                                `Raw_str (
-                                  trans_raw_string (Run.matcher_token v)
-                                )
-                            | Alt (3, v) ->
-                                `Ansii_c_str (
-                                  trans_ansii_c_string (Run.matcher_token v)
-                                )
-                            | Alt (4, v) ->
-                                `Expa (
-                                  trans_expansion (Run.matcher_token v)
-                                )
-                            | Alt (5, v) ->
-                                `Simple_expa (
-                                  trans_simple_expansion (Run.matcher_token v)
-                                )
-                            | Alt (6, v) ->
-                                `Str_expa (
-                                  trans_string_expansion (Run.matcher_token v)
-                                )
-                            | Alt (7, v) ->
-                                `Cmd_subs (
-                                  trans_command_substitution (Run.matcher_token v)
-                                )
-                            | Alt (8, v) ->
-                                `Proc_subs (
-                                  trans_process_substitution (Run.matcher_token v)
+                                `Choice_word (
+                                  (match v with
+                                  | Alt (0, v) ->
+                                      `Word (
+                                        trans_word (Run.matcher_token v)
+                                      )
+                                  | Alt (1, v) ->
+                                      `Str (
+                                        trans_string_ (Run.matcher_token v)
+                                      )
+                                  | Alt (2, v) ->
+                                      `Raw_str (
+                                        trans_raw_string (Run.matcher_token v)
+                                      )
+                                  | Alt (3, v) ->
+                                      `Ansii_c_str (
+                                        trans_ansii_c_string (Run.matcher_token v)
+                                      )
+                                  | Alt (4, v) ->
+                                      `Expa (
+                                        trans_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (5, v) ->
+                                      `Simple_expa (
+                                        trans_simple_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (6, v) ->
+                                      `Str_expa (
+                                        trans_string_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (7, v) ->
+                                      `Cmd_subs (
+                                        trans_command_substitution (Run.matcher_token v)
+                                      )
+                                  | Alt (8, v) ->
+                                      `Proc_subs (
+                                        trans_process_substitution (Run.matcher_token v)
+                                      )
+                                  | _ -> assert false
+                                  )
                                 )
                             | _ -> assert false
                             )
@@ -2391,43 +2534,53 @@ and trans_command ((kind, body) : mt) : CST.command =
                                         trans_concatenation (Run.matcher_token v)
                                       )
                                   | Alt (1, v) ->
-                                      `Choice_word (
+                                      `Choice_semg_deep_exp (
                                         (match v with
                                         | Alt (0, v) ->
-                                            `Word (
-                                              trans_word (Run.matcher_token v)
+                                            `Semg_deep_exp (
+                                              trans_semgrep_deep_expression (Run.matcher_token v)
                                             )
                                         | Alt (1, v) ->
-                                            `Str (
-                                              trans_string_ (Run.matcher_token v)
-                                            )
-                                        | Alt (2, v) ->
-                                            `Raw_str (
-                                              trans_raw_string (Run.matcher_token v)
-                                            )
-                                        | Alt (3, v) ->
-                                            `Ansii_c_str (
-                                              trans_ansii_c_string (Run.matcher_token v)
-                                            )
-                                        | Alt (4, v) ->
-                                            `Expa (
-                                              trans_expansion (Run.matcher_token v)
-                                            )
-                                        | Alt (5, v) ->
-                                            `Simple_expa (
-                                              trans_simple_expansion (Run.matcher_token v)
-                                            )
-                                        | Alt (6, v) ->
-                                            `Str_expa (
-                                              trans_string_expansion (Run.matcher_token v)
-                                            )
-                                        | Alt (7, v) ->
-                                            `Cmd_subs (
-                                              trans_command_substitution (Run.matcher_token v)
-                                            )
-                                        | Alt (8, v) ->
-                                            `Proc_subs (
-                                              trans_process_substitution (Run.matcher_token v)
+                                            `Choice_word (
+                                              (match v with
+                                              | Alt (0, v) ->
+                                                  `Word (
+                                                    trans_word (Run.matcher_token v)
+                                                  )
+                                              | Alt (1, v) ->
+                                                  `Str (
+                                                    trans_string_ (Run.matcher_token v)
+                                                  )
+                                              | Alt (2, v) ->
+                                                  `Raw_str (
+                                                    trans_raw_string (Run.matcher_token v)
+                                                  )
+                                              | Alt (3, v) ->
+                                                  `Ansii_c_str (
+                                                    trans_ansii_c_string (Run.matcher_token v)
+                                                  )
+                                              | Alt (4, v) ->
+                                                  `Expa (
+                                                    trans_expansion (Run.matcher_token v)
+                                                  )
+                                              | Alt (5, v) ->
+                                                  `Simple_expa (
+                                                    trans_simple_expansion (Run.matcher_token v)
+                                                  )
+                                              | Alt (6, v) ->
+                                                  `Str_expa (
+                                                    trans_string_expansion (Run.matcher_token v)
+                                                  )
+                                              | Alt (7, v) ->
+                                                  `Cmd_subs (
+                                                    trans_command_substitution (Run.matcher_token v)
+                                                  )
+                                              | Alt (8, v) ->
+                                                  `Proc_subs (
+                                                    trans_process_substitution (Run.matcher_token v)
+                                                  )
+                                              | _ -> assert false
+                                              )
                                             )
                                         | _ -> assert false
                                         )
@@ -2469,43 +2622,53 @@ and trans_command_name ((kind, body) : mt) : CST.command_name =
             trans_concatenation (Run.matcher_token v)
           )
       | Alt (1, v) ->
-          `Choice_word (
+          `Choice_semg_deep_exp (
             (match v with
             | Alt (0, v) ->
-                `Word (
-                  trans_word (Run.matcher_token v)
+                `Semg_deep_exp (
+                  trans_semgrep_deep_expression (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Str (
-                  trans_string_ (Run.matcher_token v)
-                )
-            | Alt (2, v) ->
-                `Raw_str (
-                  trans_raw_string (Run.matcher_token v)
-                )
-            | Alt (3, v) ->
-                `Ansii_c_str (
-                  trans_ansii_c_string (Run.matcher_token v)
-                )
-            | Alt (4, v) ->
-                `Expa (
-                  trans_expansion (Run.matcher_token v)
-                )
-            | Alt (5, v) ->
-                `Simple_expa (
-                  trans_simple_expansion (Run.matcher_token v)
-                )
-            | Alt (6, v) ->
-                `Str_expa (
-                  trans_string_expansion (Run.matcher_token v)
-                )
-            | Alt (7, v) ->
-                `Cmd_subs (
-                  trans_command_substitution (Run.matcher_token v)
-                )
-            | Alt (8, v) ->
-                `Proc_subs (
-                  trans_process_substitution (Run.matcher_token v)
+                `Choice_word (
+                  (match v with
+                  | Alt (0, v) ->
+                      `Word (
+                        trans_word (Run.matcher_token v)
+                      )
+                  | Alt (1, v) ->
+                      `Str (
+                        trans_string_ (Run.matcher_token v)
+                      )
+                  | Alt (2, v) ->
+                      `Raw_str (
+                        trans_raw_string (Run.matcher_token v)
+                      )
+                  | Alt (3, v) ->
+                      `Ansii_c_str (
+                        trans_ansii_c_string (Run.matcher_token v)
+                      )
+                  | Alt (4, v) ->
+                      `Expa (
+                        trans_expansion (Run.matcher_token v)
+                      )
+                  | Alt (5, v) ->
+                      `Simple_expa (
+                        trans_simple_expansion (Run.matcher_token v)
+                      )
+                  | Alt (6, v) ->
+                      `Str_expa (
+                        trans_string_expansion (Run.matcher_token v)
+                      )
+                  | Alt (7, v) ->
+                      `Cmd_subs (
+                        trans_command_substitution (Run.matcher_token v)
+                      )
+                  | Alt (8, v) ->
+                      `Proc_subs (
+                        trans_process_substitution (Run.matcher_token v)
+                      )
+                  | _ -> assert false
+                  )
                 )
             | _ -> assert false
             )
@@ -2704,43 +2867,53 @@ and trans_concatenation ((kind, body) : mt) : CST.concatenation =
           (
             (match v0 with
             | Alt (0, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -2760,43 +2933,53 @@ and trans_concatenation ((kind, body) : mt) : CST.concatenation =
                       trans_concat (Run.matcher_token v0),
                       (match v1 with
                       | Alt (0, v) ->
-                          `Choice_word (
+                          `Choice_semg_deep_exp (
                             (match v with
                             | Alt (0, v) ->
-                                `Word (
-                                  trans_word (Run.matcher_token v)
+                                `Semg_deep_exp (
+                                  trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Str (
-                                  trans_string_ (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
-                                `Raw_str (
-                                  trans_raw_string (Run.matcher_token v)
-                                )
-                            | Alt (3, v) ->
-                                `Ansii_c_str (
-                                  trans_ansii_c_string (Run.matcher_token v)
-                                )
-                            | Alt (4, v) ->
-                                `Expa (
-                                  trans_expansion (Run.matcher_token v)
-                                )
-                            | Alt (5, v) ->
-                                `Simple_expa (
-                                  trans_simple_expansion (Run.matcher_token v)
-                                )
-                            | Alt (6, v) ->
-                                `Str_expa (
-                                  trans_string_expansion (Run.matcher_token v)
-                                )
-                            | Alt (7, v) ->
-                                `Cmd_subs (
-                                  trans_command_substitution (Run.matcher_token v)
-                                )
-                            | Alt (8, v) ->
-                                `Proc_subs (
-                                  trans_process_substitution (Run.matcher_token v)
+                                `Choice_word (
+                                  (match v with
+                                  | Alt (0, v) ->
+                                      `Word (
+                                        trans_word (Run.matcher_token v)
+                                      )
+                                  | Alt (1, v) ->
+                                      `Str (
+                                        trans_string_ (Run.matcher_token v)
+                                      )
+                                  | Alt (2, v) ->
+                                      `Raw_str (
+                                        trans_raw_string (Run.matcher_token v)
+                                      )
+                                  | Alt (3, v) ->
+                                      `Ansii_c_str (
+                                        trans_ansii_c_string (Run.matcher_token v)
+                                      )
+                                  | Alt (4, v) ->
+                                      `Expa (
+                                        trans_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (5, v) ->
+                                      `Simple_expa (
+                                        trans_simple_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (6, v) ->
+                                      `Str_expa (
+                                        trans_string_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (7, v) ->
+                                      `Cmd_subs (
+                                        trans_command_substitution (Run.matcher_token v)
+                                      )
+                                  | Alt (8, v) ->
+                                      `Proc_subs (
+                                        trans_process_substitution (Run.matcher_token v)
+                                      )
+                                  | _ -> assert false
+                                  )
                                 )
                             | _ -> assert false
                             )
@@ -2871,43 +3054,53 @@ and trans_declaration_command ((kind, body) : mt) : CST.declaration_command =
                             trans_concatenation (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
-                          `Choice_word (
+                          `Choice_semg_deep_exp (
                             (match v with
                             | Alt (0, v) ->
-                                `Word (
-                                  trans_word (Run.matcher_token v)
+                                `Semg_deep_exp (
+                                  trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Str (
-                                  trans_string_ (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
-                                `Raw_str (
-                                  trans_raw_string (Run.matcher_token v)
-                                )
-                            | Alt (3, v) ->
-                                `Ansii_c_str (
-                                  trans_ansii_c_string (Run.matcher_token v)
-                                )
-                            | Alt (4, v) ->
-                                `Expa (
-                                  trans_expansion (Run.matcher_token v)
-                                )
-                            | Alt (5, v) ->
-                                `Simple_expa (
-                                  trans_simple_expansion (Run.matcher_token v)
-                                )
-                            | Alt (6, v) ->
-                                `Str_expa (
-                                  trans_string_expansion (Run.matcher_token v)
-                                )
-                            | Alt (7, v) ->
-                                `Cmd_subs (
-                                  trans_command_substitution (Run.matcher_token v)
-                                )
-                            | Alt (8, v) ->
-                                `Proc_subs (
-                                  trans_process_substitution (Run.matcher_token v)
+                                `Choice_word (
+                                  (match v with
+                                  | Alt (0, v) ->
+                                      `Word (
+                                        trans_word (Run.matcher_token v)
+                                      )
+                                  | Alt (1, v) ->
+                                      `Str (
+                                        trans_string_ (Run.matcher_token v)
+                                      )
+                                  | Alt (2, v) ->
+                                      `Raw_str (
+                                        trans_raw_string (Run.matcher_token v)
+                                      )
+                                  | Alt (3, v) ->
+                                      `Ansii_c_str (
+                                        trans_ansii_c_string (Run.matcher_token v)
+                                      )
+                                  | Alt (4, v) ->
+                                      `Expa (
+                                        trans_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (5, v) ->
+                                      `Simple_expa (
+                                        trans_simple_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (6, v) ->
+                                      `Str_expa (
+                                        trans_string_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (7, v) ->
+                                      `Cmd_subs (
+                                        trans_command_substitution (Run.matcher_token v)
+                                      )
+                                  | Alt (8, v) ->
+                                      `Proc_subs (
+                                        trans_process_substitution (Run.matcher_token v)
+                                      )
+                                  | _ -> assert false
+                                  )
                                 )
                             | _ -> assert false
                             )
@@ -3383,43 +3576,53 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                                       trans_concatenation (Run.matcher_token v)
                                     )
                                 | Alt (1, v) ->
-                                    `Choice_word (
+                                    `Choice_semg_deep_exp (
                                       (match v with
                                       | Alt (0, v) ->
-                                          `Word (
-                                            trans_word (Run.matcher_token v)
+                                          `Semg_deep_exp (
+                                            trans_semgrep_deep_expression (Run.matcher_token v)
                                           )
                                       | Alt (1, v) ->
-                                          `Str (
-                                            trans_string_ (Run.matcher_token v)
-                                          )
-                                      | Alt (2, v) ->
-                                          `Raw_str (
-                                            trans_raw_string (Run.matcher_token v)
-                                          )
-                                      | Alt (3, v) ->
-                                          `Ansii_c_str (
-                                            trans_ansii_c_string (Run.matcher_token v)
-                                          )
-                                      | Alt (4, v) ->
-                                          `Expa (
-                                            trans_expansion (Run.matcher_token v)
-                                          )
-                                      | Alt (5, v) ->
-                                          `Simple_expa (
-                                            trans_simple_expansion (Run.matcher_token v)
-                                          )
-                                      | Alt (6, v) ->
-                                          `Str_expa (
-                                            trans_string_expansion (Run.matcher_token v)
-                                          )
-                                      | Alt (7, v) ->
-                                          `Cmd_subs (
-                                            trans_command_substitution (Run.matcher_token v)
-                                          )
-                                      | Alt (8, v) ->
-                                          `Proc_subs (
-                                            trans_process_substitution (Run.matcher_token v)
+                                          `Choice_word (
+                                            (match v with
+                                            | Alt (0, v) ->
+                                                `Word (
+                                                  trans_word (Run.matcher_token v)
+                                                )
+                                            | Alt (1, v) ->
+                                                `Str (
+                                                  trans_string_ (Run.matcher_token v)
+                                                )
+                                            | Alt (2, v) ->
+                                                `Raw_str (
+                                                  trans_raw_string (Run.matcher_token v)
+                                                )
+                                            | Alt (3, v) ->
+                                                `Ansii_c_str (
+                                                  trans_ansii_c_string (Run.matcher_token v)
+                                                )
+                                            | Alt (4, v) ->
+                                                `Expa (
+                                                  trans_expansion (Run.matcher_token v)
+                                                )
+                                            | Alt (5, v) ->
+                                                `Simple_expa (
+                                                  trans_simple_expansion (Run.matcher_token v)
+                                                )
+                                            | Alt (6, v) ->
+                                                `Str_expa (
+                                                  trans_string_expansion (Run.matcher_token v)
+                                                )
+                                            | Alt (7, v) ->
+                                                `Cmd_subs (
+                                                  trans_command_substitution (Run.matcher_token v)
+                                                )
+                                            | Alt (8, v) ->
+                                                `Proc_subs (
+                                                  trans_process_substitution (Run.matcher_token v)
+                                                )
+                                            | _ -> assert false
+                                            )
                                           )
                                       | _ -> assert false
                                       )
@@ -3525,43 +3728,53 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                                             trans_concatenation (Run.matcher_token v)
                                           )
                                       | Alt (1, v) ->
-                                          `Choice_word (
+                                          `Choice_semg_deep_exp (
                                             (match v with
                                             | Alt (0, v) ->
-                                                `Word (
-                                                  trans_word (Run.matcher_token v)
+                                                `Semg_deep_exp (
+                                                  trans_semgrep_deep_expression (Run.matcher_token v)
                                                 )
                                             | Alt (1, v) ->
-                                                `Str (
-                                                  trans_string_ (Run.matcher_token v)
-                                                )
-                                            | Alt (2, v) ->
-                                                `Raw_str (
-                                                  trans_raw_string (Run.matcher_token v)
-                                                )
-                                            | Alt (3, v) ->
-                                                `Ansii_c_str (
-                                                  trans_ansii_c_string (Run.matcher_token v)
-                                                )
-                                            | Alt (4, v) ->
-                                                `Expa (
-                                                  trans_expansion (Run.matcher_token v)
-                                                )
-                                            | Alt (5, v) ->
-                                                `Simple_expa (
-                                                  trans_simple_expansion (Run.matcher_token v)
-                                                )
-                                            | Alt (6, v) ->
-                                                `Str_expa (
-                                                  trans_string_expansion (Run.matcher_token v)
-                                                )
-                                            | Alt (7, v) ->
-                                                `Cmd_subs (
-                                                  trans_command_substitution (Run.matcher_token v)
-                                                )
-                                            | Alt (8, v) ->
-                                                `Proc_subs (
-                                                  trans_process_substitution (Run.matcher_token v)
+                                                `Choice_word (
+                                                  (match v with
+                                                  | Alt (0, v) ->
+                                                      `Word (
+                                                        trans_word (Run.matcher_token v)
+                                                      )
+                                                  | Alt (1, v) ->
+                                                      `Str (
+                                                        trans_string_ (Run.matcher_token v)
+                                                      )
+                                                  | Alt (2, v) ->
+                                                      `Raw_str (
+                                                        trans_raw_string (Run.matcher_token v)
+                                                      )
+                                                  | Alt (3, v) ->
+                                                      `Ansii_c_str (
+                                                        trans_ansii_c_string (Run.matcher_token v)
+                                                      )
+                                                  | Alt (4, v) ->
+                                                      `Expa (
+                                                        trans_expansion (Run.matcher_token v)
+                                                      )
+                                                  | Alt (5, v) ->
+                                                      `Simple_expa (
+                                                        trans_simple_expansion (Run.matcher_token v)
+                                                      )
+                                                  | Alt (6, v) ->
+                                                      `Str_expa (
+                                                        trans_string_expansion (Run.matcher_token v)
+                                                      )
+                                                  | Alt (7, v) ->
+                                                      `Cmd_subs (
+                                                        trans_command_substitution (Run.matcher_token v)
+                                                      )
+                                                  | Alt (8, v) ->
+                                                      `Proc_subs (
+                                                        trans_process_substitution (Run.matcher_token v)
+                                                      )
+                                                  | _ -> assert false
+                                                  )
                                                 )
                                             | _ -> assert false
                                             )
@@ -3634,43 +3847,53 @@ and trans_expression ((kind, body) : mt) : CST.expression =
                   trans_concatenation (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -3760,43 +3983,53 @@ and trans_file_redirect ((kind, body) : mt) : CST.file_redirect =
                   trans_concatenation (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -3858,43 +4091,53 @@ and trans_for_statement ((kind, body) : mt) : CST.for_statement =
                                 trans_concatenation (Run.matcher_token v)
                               )
                           | Alt (1, v) ->
-                              `Choice_word (
+                              `Choice_semg_deep_exp (
                                 (match v with
                                 | Alt (0, v) ->
-                                    `Word (
-                                      trans_word (Run.matcher_token v)
+                                    `Semg_deep_exp (
+                                      trans_semgrep_deep_expression (Run.matcher_token v)
                                     )
                                 | Alt (1, v) ->
-                                    `Str (
-                                      trans_string_ (Run.matcher_token v)
-                                    )
-                                | Alt (2, v) ->
-                                    `Raw_str (
-                                      trans_raw_string (Run.matcher_token v)
-                                    )
-                                | Alt (3, v) ->
-                                    `Ansii_c_str (
-                                      trans_ansii_c_string (Run.matcher_token v)
-                                    )
-                                | Alt (4, v) ->
-                                    `Expa (
-                                      trans_expansion (Run.matcher_token v)
-                                    )
-                                | Alt (5, v) ->
-                                    `Simple_expa (
-                                      trans_simple_expansion (Run.matcher_token v)
-                                    )
-                                | Alt (6, v) ->
-                                    `Str_expa (
-                                      trans_string_expansion (Run.matcher_token v)
-                                    )
-                                | Alt (7, v) ->
-                                    `Cmd_subs (
-                                      trans_command_substitution (Run.matcher_token v)
-                                    )
-                                | Alt (8, v) ->
-                                    `Proc_subs (
-                                      trans_process_substitution (Run.matcher_token v)
+                                    `Choice_word (
+                                      (match v with
+                                      | Alt (0, v) ->
+                                          `Word (
+                                            trans_word (Run.matcher_token v)
+                                          )
+                                      | Alt (1, v) ->
+                                          `Str (
+                                            trans_string_ (Run.matcher_token v)
+                                          )
+                                      | Alt (2, v) ->
+                                          `Raw_str (
+                                            trans_raw_string (Run.matcher_token v)
+                                          )
+                                      | Alt (3, v) ->
+                                          `Ansii_c_str (
+                                            trans_ansii_c_string (Run.matcher_token v)
+                                          )
+                                      | Alt (4, v) ->
+                                          `Expa (
+                                            trans_expansion (Run.matcher_token v)
+                                          )
+                                      | Alt (5, v) ->
+                                          `Simple_expa (
+                                            trans_simple_expansion (Run.matcher_token v)
+                                          )
+                                      | Alt (6, v) ->
+                                          `Str_expa (
+                                            trans_string_expansion (Run.matcher_token v)
+                                          )
+                                      | Alt (7, v) ->
+                                          `Cmd_subs (
+                                            trans_command_substitution (Run.matcher_token v)
+                                          )
+                                      | Alt (8, v) ->
+                                          `Proc_subs (
+                                            trans_process_substitution (Run.matcher_token v)
+                                          )
+                                      | _ -> assert false
+                                      )
                                     )
                                 | _ -> assert false
                                 )
@@ -4066,43 +4309,53 @@ and trans_herestring_redirect ((kind, body) : mt) : CST.herestring_redirect =
                   trans_concatenation (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -4274,43 +4527,53 @@ and trans_last_case_item ((kind, body) : mt) : CST.last_case_item =
                   trans_concatenation (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -4336,43 +4599,53 @@ and trans_last_case_item ((kind, body) : mt) : CST.last_case_item =
                             trans_concatenation (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
-                          `Choice_word (
+                          `Choice_semg_deep_exp (
                             (match v with
                             | Alt (0, v) ->
-                                `Word (
-                                  trans_word (Run.matcher_token v)
+                                `Semg_deep_exp (
+                                  trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Str (
-                                  trans_string_ (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
-                                `Raw_str (
-                                  trans_raw_string (Run.matcher_token v)
-                                )
-                            | Alt (3, v) ->
-                                `Ansii_c_str (
-                                  trans_ansii_c_string (Run.matcher_token v)
-                                )
-                            | Alt (4, v) ->
-                                `Expa (
-                                  trans_expansion (Run.matcher_token v)
-                                )
-                            | Alt (5, v) ->
-                                `Simple_expa (
-                                  trans_simple_expansion (Run.matcher_token v)
-                                )
-                            | Alt (6, v) ->
-                                `Str_expa (
-                                  trans_string_expansion (Run.matcher_token v)
-                                )
-                            | Alt (7, v) ->
-                                `Cmd_subs (
-                                  trans_command_substitution (Run.matcher_token v)
-                                )
-                            | Alt (8, v) ->
-                                `Proc_subs (
-                                  trans_process_substitution (Run.matcher_token v)
+                                `Choice_word (
+                                  (match v with
+                                  | Alt (0, v) ->
+                                      `Word (
+                                        trans_word (Run.matcher_token v)
+                                      )
+                                  | Alt (1, v) ->
+                                      `Str (
+                                        trans_string_ (Run.matcher_token v)
+                                      )
+                                  | Alt (2, v) ->
+                                      `Raw_str (
+                                        trans_raw_string (Run.matcher_token v)
+                                      )
+                                  | Alt (3, v) ->
+                                      `Ansii_c_str (
+                                        trans_ansii_c_string (Run.matcher_token v)
+                                      )
+                                  | Alt (4, v) ->
+                                      `Expa (
+                                        trans_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (5, v) ->
+                                      `Simple_expa (
+                                        trans_simple_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (6, v) ->
+                                      `Str_expa (
+                                        trans_string_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (7, v) ->
+                                      `Cmd_subs (
+                                        trans_command_substitution (Run.matcher_token v)
+                                      )
+                                  | Alt (8, v) ->
+                                      `Proc_subs (
+                                        trans_process_substitution (Run.matcher_token v)
+                                      )
+                                  | _ -> assert false
+                                  )
                                 )
                             | _ -> assert false
                             )
@@ -4927,6 +5200,85 @@ and trans_redirected_statement ((kind, body) : mt) : CST.redirected_statement =
       )
   | Leaf _ -> assert false
 
+and trans_semgrep_deep_expression ((kind, body) : mt) : CST.semgrep_deep_expression =
+  match body with
+  | Children v ->
+      (match v with
+      | Seq [v0; v1; v2] ->
+          (
+            Run.trans_token (Run.matcher_token v0),
+            (match v1 with
+            | Alt (0, v) ->
+                `Conc (
+                  trans_concatenation (Run.matcher_token v)
+                )
+            | Alt (1, v) ->
+                `Choice_semg_deep_exp (
+                  (match v with
+                  | Alt (0, v) ->
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
+                      )
+                  | Alt (1, v) ->
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
+                      )
+                  | _ -> assert false
+                  )
+                )
+            | Alt (2, v) ->
+                `Rep1_spec_char (
+                  Run.repeat1
+                    (fun v -> trans_special_character (Run.matcher_token v))
+                    v
+                )
+            | _ -> assert false
+            )
+            ,
+            Run.trans_token (Run.matcher_token v2)
+          )
+      | _ -> assert false
+      )
+  | Leaf _ -> assert false
+
 and trans_statements ((kind, body) : mt) : CST.statements =
   match body with
   | Children v ->
@@ -5259,43 +5611,53 @@ and trans_subscript ((kind, body) : mt) : CST.subscript =
                   trans_concatenation (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Choice_word (
+                `Choice_semg_deep_exp (
                   (match v with
                   | Alt (0, v) ->
-                      `Word (
-                        trans_word (Run.matcher_token v)
+                      `Semg_deep_exp (
+                        trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Str (
-                        trans_string_ (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
-                      `Raw_str (
-                        trans_raw_string (Run.matcher_token v)
-                      )
-                  | Alt (3, v) ->
-                      `Ansii_c_str (
-                        trans_ansii_c_string (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `Expa (
-                        trans_expansion (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `Simple_expa (
-                        trans_simple_expansion (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `Str_expa (
-                        trans_string_expansion (Run.matcher_token v)
-                      )
-                  | Alt (7, v) ->
-                      `Cmd_subs (
-                        trans_command_substitution (Run.matcher_token v)
-                      )
-                  | Alt (8, v) ->
-                      `Proc_subs (
-                        trans_process_substitution (Run.matcher_token v)
+                      `Choice_word (
+                        (match v with
+                        | Alt (0, v) ->
+                            `Word (
+                              trans_word (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `Str (
+                              trans_string_ (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `Raw_str (
+                              trans_raw_string (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `Ansii_c_str (
+                              trans_ansii_c_string (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `Expa (
+                              trans_expansion (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `Simple_expa (
+                              trans_simple_expansion (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `Str_expa (
+                              trans_string_expansion (Run.matcher_token v)
+                            )
+                        | Alt (7, v) ->
+                            `Cmd_subs (
+                              trans_command_substitution (Run.matcher_token v)
+                            )
+                        | Alt (8, v) ->
+                            `Proc_subs (
+                              trans_process_substitution (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | _ -> assert false
                   )
@@ -5557,43 +5919,53 @@ and trans_unset_command ((kind, body) : mt) : CST.unset_command =
                             trans_concatenation (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
-                          `Choice_word (
+                          `Choice_semg_deep_exp (
                             (match v with
                             | Alt (0, v) ->
-                                `Word (
-                                  trans_word (Run.matcher_token v)
+                                `Semg_deep_exp (
+                                  trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Str (
-                                  trans_string_ (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
-                                `Raw_str (
-                                  trans_raw_string (Run.matcher_token v)
-                                )
-                            | Alt (3, v) ->
-                                `Ansii_c_str (
-                                  trans_ansii_c_string (Run.matcher_token v)
-                                )
-                            | Alt (4, v) ->
-                                `Expa (
-                                  trans_expansion (Run.matcher_token v)
-                                )
-                            | Alt (5, v) ->
-                                `Simple_expa (
-                                  trans_simple_expansion (Run.matcher_token v)
-                                )
-                            | Alt (6, v) ->
-                                `Str_expa (
-                                  trans_string_expansion (Run.matcher_token v)
-                                )
-                            | Alt (7, v) ->
-                                `Cmd_subs (
-                                  trans_command_substitution (Run.matcher_token v)
-                                )
-                            | Alt (8, v) ->
-                                `Proc_subs (
-                                  trans_process_substitution (Run.matcher_token v)
+                                `Choice_word (
+                                  (match v with
+                                  | Alt (0, v) ->
+                                      `Word (
+                                        trans_word (Run.matcher_token v)
+                                      )
+                                  | Alt (1, v) ->
+                                      `Str (
+                                        trans_string_ (Run.matcher_token v)
+                                      )
+                                  | Alt (2, v) ->
+                                      `Raw_str (
+                                        trans_raw_string (Run.matcher_token v)
+                                      )
+                                  | Alt (3, v) ->
+                                      `Ansii_c_str (
+                                        trans_ansii_c_string (Run.matcher_token v)
+                                      )
+                                  | Alt (4, v) ->
+                                      `Expa (
+                                        trans_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (5, v) ->
+                                      `Simple_expa (
+                                        trans_simple_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (6, v) ->
+                                      `Str_expa (
+                                        trans_string_expansion (Run.matcher_token v)
+                                      )
+                                  | Alt (7, v) ->
+                                      `Cmd_subs (
+                                        trans_command_substitution (Run.matcher_token v)
+                                      )
+                                  | Alt (8, v) ->
+                                      `Proc_subs (
+                                        trans_process_substitution (Run.matcher_token v)
+                                      )
+                                  | _ -> assert false
+                                  )
                                 )
                             | _ -> assert false
                             )
@@ -5660,43 +6032,53 @@ and trans_variable_assignment ((kind, body) : mt) : CST.variable_assignment =
                               trans_concatenation (Run.matcher_token v)
                             )
                         | Alt (1, v) ->
-                            `Choice_word (
+                            `Choice_semg_deep_exp (
                               (match v with
                               | Alt (0, v) ->
-                                  `Word (
-                                    trans_word (Run.matcher_token v)
+                                  `Semg_deep_exp (
+                                    trans_semgrep_deep_expression (Run.matcher_token v)
                                   )
                               | Alt (1, v) ->
-                                  `Str (
-                                    trans_string_ (Run.matcher_token v)
-                                  )
-                              | Alt (2, v) ->
-                                  `Raw_str (
-                                    trans_raw_string (Run.matcher_token v)
-                                  )
-                              | Alt (3, v) ->
-                                  `Ansii_c_str (
-                                    trans_ansii_c_string (Run.matcher_token v)
-                                  )
-                              | Alt (4, v) ->
-                                  `Expa (
-                                    trans_expansion (Run.matcher_token v)
-                                  )
-                              | Alt (5, v) ->
-                                  `Simple_expa (
-                                    trans_simple_expansion (Run.matcher_token v)
-                                  )
-                              | Alt (6, v) ->
-                                  `Str_expa (
-                                    trans_string_expansion (Run.matcher_token v)
-                                  )
-                              | Alt (7, v) ->
-                                  `Cmd_subs (
-                                    trans_command_substitution (Run.matcher_token v)
-                                  )
-                              | Alt (8, v) ->
-                                  `Proc_subs (
-                                    trans_process_substitution (Run.matcher_token v)
+                                  `Choice_word (
+                                    (match v with
+                                    | Alt (0, v) ->
+                                        `Word (
+                                          trans_word (Run.matcher_token v)
+                                        )
+                                    | Alt (1, v) ->
+                                        `Str (
+                                          trans_string_ (Run.matcher_token v)
+                                        )
+                                    | Alt (2, v) ->
+                                        `Raw_str (
+                                          trans_raw_string (Run.matcher_token v)
+                                        )
+                                    | Alt (3, v) ->
+                                        `Ansii_c_str (
+                                          trans_ansii_c_string (Run.matcher_token v)
+                                        )
+                                    | Alt (4, v) ->
+                                        `Expa (
+                                          trans_expansion (Run.matcher_token v)
+                                        )
+                                    | Alt (5, v) ->
+                                        `Simple_expa (
+                                          trans_simple_expansion (Run.matcher_token v)
+                                        )
+                                    | Alt (6, v) ->
+                                        `Str_expa (
+                                          trans_string_expansion (Run.matcher_token v)
+                                        )
+                                    | Alt (7, v) ->
+                                        `Cmd_subs (
+                                          trans_command_substitution (Run.matcher_token v)
+                                        )
+                                    | Alt (8, v) ->
+                                        `Proc_subs (
+                                          trans_process_substitution (Run.matcher_token v)
+                                        )
+                                    | _ -> assert false
+                                    )
                                   )
                               | _ -> assert false
                               )
@@ -5762,43 +6144,53 @@ and trans_variable_assignment ((kind, body) : mt) : CST.variable_assignment =
                               trans_concatenation (Run.matcher_token v)
                             )
                         | Alt (1, v) ->
-                            `Choice_word (
+                            `Choice_semg_deep_exp (
                               (match v with
                               | Alt (0, v) ->
-                                  `Word (
-                                    trans_word (Run.matcher_token v)
+                                  `Semg_deep_exp (
+                                    trans_semgrep_deep_expression (Run.matcher_token v)
                                   )
                               | Alt (1, v) ->
-                                  `Str (
-                                    trans_string_ (Run.matcher_token v)
-                                  )
-                              | Alt (2, v) ->
-                                  `Raw_str (
-                                    trans_raw_string (Run.matcher_token v)
-                                  )
-                              | Alt (3, v) ->
-                                  `Ansii_c_str (
-                                    trans_ansii_c_string (Run.matcher_token v)
-                                  )
-                              | Alt (4, v) ->
-                                  `Expa (
-                                    trans_expansion (Run.matcher_token v)
-                                  )
-                              | Alt (5, v) ->
-                                  `Simple_expa (
-                                    trans_simple_expansion (Run.matcher_token v)
-                                  )
-                              | Alt (6, v) ->
-                                  `Str_expa (
-                                    trans_string_expansion (Run.matcher_token v)
-                                  )
-                              | Alt (7, v) ->
-                                  `Cmd_subs (
-                                    trans_command_substitution (Run.matcher_token v)
-                                  )
-                              | Alt (8, v) ->
-                                  `Proc_subs (
-                                    trans_process_substitution (Run.matcher_token v)
+                                  `Choice_word (
+                                    (match v with
+                                    | Alt (0, v) ->
+                                        `Word (
+                                          trans_word (Run.matcher_token v)
+                                        )
+                                    | Alt (1, v) ->
+                                        `Str (
+                                          trans_string_ (Run.matcher_token v)
+                                        )
+                                    | Alt (2, v) ->
+                                        `Raw_str (
+                                          trans_raw_string (Run.matcher_token v)
+                                        )
+                                    | Alt (3, v) ->
+                                        `Ansii_c_str (
+                                          trans_ansii_c_string (Run.matcher_token v)
+                                        )
+                                    | Alt (4, v) ->
+                                        `Expa (
+                                          trans_expansion (Run.matcher_token v)
+                                        )
+                                    | Alt (5, v) ->
+                                        `Simple_expa (
+                                          trans_simple_expansion (Run.matcher_token v)
+                                        )
+                                    | Alt (6, v) ->
+                                        `Str_expa (
+                                          trans_string_expansion (Run.matcher_token v)
+                                        )
+                                    | Alt (7, v) ->
+                                        `Cmd_subs (
+                                          trans_command_substitution (Run.matcher_token v)
+                                        )
+                                    | Alt (8, v) ->
+                                        `Proc_subs (
+                                          trans_process_substitution (Run.matcher_token v)
+                                        )
+                                    | _ -> assert false
+                                    )
                                   )
                               | _ -> assert false
                               )

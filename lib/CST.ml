@@ -126,8 +126,8 @@ type anon_choice_lit_bbf16c7 = [
   | `Empty_value of empty_value (*tok*)
 ]
 
-and anon_choice_prim_exp_9700637 = [
-    `Choice_word of primary_expression
+and anon_choice_prim_exp_65e2c2e = [
+    `Choice_semg_deep_exp of primary_expression
   | `Spec_char of special_character (*tok*)
 ]
 
@@ -196,7 +196,7 @@ and command = (
 
 and command_name = [
     `Conc of concatenation
-  | `Choice_word of primary_expression
+  | `Choice_semg_deep_exp of primary_expression
   | `Rep1_spec_char of special_character (*tok*) list (* one or more *)
 ]
 
@@ -219,8 +219,8 @@ and compound_statement = (
 )
 
 and concatenation = (
-    anon_choice_prim_exp_9700637
-  * (concat (*tok*) * anon_choice_prim_exp_9700637) list (* one or more *)
+    anon_choice_prim_exp_65e2c2e
+  * (concat (*tok*) * anon_choice_prim_exp_65e2c2e) list (* one or more *)
   * (concat (*tok*) * Token.t (* "$" *)) option
 )
 
@@ -332,28 +332,30 @@ and last_case_item = (
 
 and literal = [
     `Conc of concatenation
-  | `Choice_word of primary_expression
+  | `Choice_semg_deep_exp of primary_expression
   | `Rep1_spec_char of special_character (*tok*) list (* one or more *)
 ]
 
 and primary_expression = [
-    `Word of word (*tok*)
-  | `Str of string_
-  | `Raw_str of raw_string (*tok*)
-  | `Ansii_c_str of ansii_c_string (*tok*)
-  | `Expa of expansion
-  | `Simple_expa of simple_expansion
-  | `Str_expa of (
-        Token.t (* "$" *)
-      * [ `Str of string_ | `Raw_str of raw_string (*tok*) ]
-    )
-  | `Cmd_subs of command_substitution
-  | `Proc_subs of (
-        [ `LTLPAR of Token.t (* "<(" *) | `GTLPAR of Token.t (* ">(" *) ]
-      * statements
-      * Token.t (* ")" *)
-    )
+    `Semg_deep_exp of (Token.t (* "<..." *) * literal * Token.t (* "...>" *))
+  | `Choice_word of [
+        `Word of word (*tok*)
+      | `Str of string_
+      | `Raw_str of raw_string (*tok*)
+      | `Ansii_c_str of ansii_c_string (*tok*)
+      | `Expa of expansion
+      | `Simple_expa of simple_expansion
+      | `Str_expa of string_expansion
+      | `Cmd_subs of command_substitution
+      | `Proc_subs of process_substitution
+    ]
 ]
+
+and process_substitution = (
+    [ `LTLPAR of Token.t (* "<(" *) | `GTLPAR of Token.t (* ">(" *) ]
+  * statements
+  * Token.t (* ")" *)
+)
 
 and program = statements option
 
@@ -496,6 +498,11 @@ and string_ = (
       list (* zero or more *)
   * Token.t (* "$" *) option
   * Token.t (* "\"" *)
+)
+
+and string_expansion = (
+    Token.t (* "$" *)
+  * [ `Str of string_ | `Raw_str of raw_string (*tok*) ]
 )
 
 and subscript = (
@@ -664,13 +671,6 @@ type postfix_expression (* inlined *) = (
 )
 [@@deriving sexp_of]
 
-type process_substitution (* inlined *) = (
-    [ `LTLPAR of Token.t (* "<(" *) | `GTLPAR of Token.t (* ">(" *) ]
-  * statements
-  * Token.t (* ")" *)
-)
-[@@deriving sexp_of]
-
 type redirected_statement (* inlined *) = (
     statement
   * [
@@ -682,9 +682,8 @@ type redirected_statement (* inlined *) = (
 )
 [@@deriving sexp_of]
 
-type string_expansion (* inlined *) = (
-    Token.t (* "$" *)
-  * [ `Str of string_ | `Raw_str of raw_string (*tok*) ]
+type semgrep_deep_expression (* inlined *) = (
+    Token.t (* "<..." *) * literal * Token.t (* "...>" *)
 )
 [@@deriving sexp_of]
 
