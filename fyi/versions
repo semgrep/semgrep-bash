@@ -20,11 +20,11 @@ Last change in file:
 ---
 File: semgrep-grammars/src/semgrep-bash/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: 5c148783032a60e840764a92c1a4011277e1a3d1
+Latest commit in repo: ad62e506aa9b7c78cbaee5d05b6db5bdef35952d
 Last change in file:
-  commit 588af0cad62747fce79a9ebec03c31f95a878812
-  Author: Martin Jambon <martin@mjambon.com>
-  Date:   Wed Oct 27 12:38:23 2021 -0700
+  commit ad62e506aa9b7c78cbaee5d05b6db5bdef35952d
+  Author: Martin Jambon <martin@r2c.dev>
+  Date:   Tue Apr 12 16:44:35 2022 -0700
   
-      Add support for semgrep deep expression patterns in bash
+      Add syntax for named ellipses in bash patterns
 ---
