@@ -20,11 +20,11 @@ Last change in file:
 ---
 File: semgrep-grammars/src/semgrep-bash/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: ad62e506aa9b7c78cbaee5d05b6db5bdef35952d
+Latest commit in repo: a352aa10b583186ba267854bb28a2d72e9fe0a83
 Last change in file:
-  commit ad62e506aa9b7c78cbaee5d05b6db5bdef35952d
+  commit a352aa10b583186ba267854bb28a2d72e9fe0a83
   Author: Martin Jambon <martin@r2c.dev>
-  Date:   Tue Apr 12 16:44:35 2022 -0700
+  Date:   Tue Apr 12 20:05:35 2022 -0700
   
-      Add syntax for named ellipses in bash patterns
+      bash: support named ellipses within double-quoted strings
 ---

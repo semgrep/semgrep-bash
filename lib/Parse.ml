@@ -77,23 +77,26 @@ let children_regexps : (string * Run.exp option) list = [
   );
   "simple_expansion",
   Some (
-    Seq [
-      Token (Literal "$");
-      Alt [|
-        Token (Name "orig_simple_variable_name");
+    Alt [|
+      Seq [
+        Token (Literal "$");
         Alt [|
-          Token (Literal "*");
-          Token (Literal "@");
-          Token (Literal "?");
-          Token (Literal "-");
-          Token (Literal "$");
-          Token (Literal "0");
-          Token (Literal "_");
+          Token (Name "orig_simple_variable_name");
+          Alt [|
+            Token (Literal "*");
+            Token (Literal "@");
+            Token (Literal "?");
+            Token (Literal "-");
+            Token (Literal "$");
+            Token (Literal "0");
+            Token (Literal "_");
+          |];
+          Token (Literal "!");
+          Token (Literal "#");
         |];
-        Token (Literal "!");
-        Token (Literal "#");
-      |];
-    ];
+      ];
+      Token (Name "semgrep_named_ellipsis");
+    |];
   );
   "array",
   Some (
@@ -104,7 +107,6 @@ let children_regexps : (string * Run.exp option) list = [
           Token (Name "concatenation");
           Alt [|
             Token (Name "semgrep_deep_expression");
-            Token (Name "semgrep_named_ellipsis");
             Alt [|
               Token (Name "word");
               Token (Name "string");
@@ -202,7 +204,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -226,7 +227,6 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -266,7 +266,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -325,7 +324,6 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -352,7 +350,6 @@ let children_regexps : (string * Run.exp option) list = [
                 Token (Name "concatenation");
                 Alt [|
                   Token (Name "semgrep_deep_expression");
-                  Token (Name "semgrep_named_ellipsis");
                   Alt [|
                     Token (Name "word");
                     Token (Name "string");
@@ -382,7 +379,6 @@ let children_regexps : (string * Run.exp option) list = [
       Token (Name "concatenation");
       Alt [|
         Token (Name "semgrep_deep_expression");
-        Token (Name "semgrep_named_ellipsis");
         Alt [|
           Token (Name "word");
           Token (Name "string");
@@ -470,7 +466,6 @@ let children_regexps : (string * Run.exp option) list = [
       Alt [|
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -491,7 +486,6 @@ let children_regexps : (string * Run.exp option) list = [
           Alt [|
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -532,7 +526,6 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -710,7 +703,6 @@ let children_regexps : (string * Run.exp option) list = [
                 Token (Name "concatenation");
                 Alt [|
                   Token (Name "semgrep_deep_expression");
-                  Token (Name "semgrep_named_ellipsis");
                   Alt [|
                     Token (Name "word");
                     Token (Name "string");
@@ -760,7 +752,6 @@ let children_regexps : (string * Run.exp option) list = [
                   Token (Name "concatenation");
                   Alt [|
                     Token (Name "semgrep_deep_expression");
-                    Token (Name "semgrep_named_ellipsis");
                     Alt [|
                       Token (Name "word");
                       Token (Name "string");
@@ -799,7 +790,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -843,7 +833,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -881,7 +870,6 @@ let children_regexps : (string * Run.exp option) list = [
               Token (Name "concatenation");
               Alt [|
                 Token (Name "semgrep_deep_expression");
-                Token (Name "semgrep_named_ellipsis");
                 Alt [|
                   Token (Name "word");
                   Token (Name "string");
@@ -963,7 +951,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -1041,7 +1028,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -1065,7 +1051,6 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -1266,7 +1251,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -1406,7 +1390,6 @@ let children_regexps : (string * Run.exp option) list = [
         Token (Name "concatenation");
         Alt [|
           Token (Name "semgrep_deep_expression");
-          Token (Name "semgrep_named_ellipsis");
           Alt [|
             Token (Name "word");
             Token (Name "string");
@@ -1525,7 +1508,6 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -1563,7 +1545,6 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -1598,7 +1579,6 @@ let children_regexps : (string * Run.exp option) list = [
             Token (Name "concatenation");
             Alt [|
               Token (Name "semgrep_deep_expression");
-              Token (Name "semgrep_named_ellipsis");
               Alt [|
                 Token (Name "word");
                 Token (Name "string");
@@ -1796,58 +1776,68 @@ let trans_simple_expansion ((kind, body) : mt) : CST.simple_expansion =
   match body with
   | Children v ->
       (match v with
-      | Seq [v0; v1] ->
-          (
-            Run.trans_token (Run.matcher_token v0),
-            (match v1 with
-            | Alt (0, v) ->
-                `Orig_simple_var_name (
-                  trans_orig_simple_variable_name (Run.matcher_token v)
-                )
-            | Alt (1, v) ->
-                `Choice_STAR (
-                  (match v with
+      | Alt (0, v) ->
+          `DOLLAR_choice_orig_simple_var_name (
+            (match v with
+            | Seq [v0; v1] ->
+                (
+                  Run.trans_token (Run.matcher_token v0),
+                  (match v1 with
                   | Alt (0, v) ->
-                      `STAR (
-                        Run.trans_token (Run.matcher_token v)
+                      `Orig_simple_var_name (
+                        trans_orig_simple_variable_name (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `AT (
-                        Run.trans_token (Run.matcher_token v)
+                      `Choice_STAR (
+                        (match v with
+                        | Alt (0, v) ->
+                            `STAR (
+                              Run.trans_token (Run.matcher_token v)
+                            )
+                        | Alt (1, v) ->
+                            `AT (
+                              Run.trans_token (Run.matcher_token v)
+                            )
+                        | Alt (2, v) ->
+                            `QMARK (
+                              Run.trans_token (Run.matcher_token v)
+                            )
+                        | Alt (3, v) ->
+                            `DASH (
+                              Run.trans_token (Run.matcher_token v)
+                            )
+                        | Alt (4, v) ->
+                            `DOLLAR (
+                              Run.trans_token (Run.matcher_token v)
+                            )
+                        | Alt (5, v) ->
+                            `X_0 (
+                              Run.trans_token (Run.matcher_token v)
+                            )
+                        | Alt (6, v) ->
+                            `X__ (
+                              Run.trans_token (Run.matcher_token v)
+                            )
+                        | _ -> assert false
+                        )
                       )
                   | Alt (2, v) ->
-                      `QMARK (
+                      `BANG (
                         Run.trans_token (Run.matcher_token v)
                       )
                   | Alt (3, v) ->
-                      `DASH (
-                        Run.trans_token (Run.matcher_token v)
-                      )
-                  | Alt (4, v) ->
-                      `DOLLAR (
-                        Run.trans_token (Run.matcher_token v)
-                      )
-                  | Alt (5, v) ->
-                      `X_0 (
-                        Run.trans_token (Run.matcher_token v)
-                      )
-                  | Alt (6, v) ->
-                      `X__ (
+                      `HASH (
                         Run.trans_token (Run.matcher_token v)
                       )
                   | _ -> assert false
                   )
                 )
-            | Alt (2, v) ->
-                `BANG (
-                  Run.trans_token (Run.matcher_token v)
-                )
-            | Alt (3, v) ->
-                `HASH (
-                  Run.trans_token (Run.matcher_token v)
-                )
             | _ -> assert false
             )
+          )
+      | Alt (1, v) ->
+          `Semg_named_ellips (
+            trans_semgrep_named_ellipsis (Run.matcher_token v)
           )
       | _ -> assert false
       )
@@ -1875,10 +1865,6 @@ let rec trans_array_ ((kind, body) : mt) : CST.array_ =
                             trans_semgrep_deep_expression (Run.matcher_token v)
                           )
                       | Alt (1, v) ->
-                          `Semg_named_ellips (
-                            trans_semgrep_named_ellipsis (Run.matcher_token v)
-                          )
-                      | Alt (2, v) ->
                           `Choice_word (
                             (match v with
                             | Alt (0, v) ->
@@ -2146,10 +2132,6 @@ and trans_case_item ((kind, body) : mt) : CST.case_item =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -2222,10 +2204,6 @@ and trans_case_item ((kind, body) : mt) : CST.case_item =
                                   trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Semg_named_ellips (
-                                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
                                 `Choice_word (
                                   (match v with
                                   | Alt (0, v) ->
@@ -2335,10 +2313,6 @@ and trans_case_statement ((kind, body) : mt) : CST.case_statement =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -2500,10 +2474,6 @@ and trans_command ((kind, body) : mt) : CST.command =
                                   trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Semg_named_ellips (
-                                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
                                 `Choice_word (
                                   (match v with
                                   | Alt (0, v) ->
@@ -2590,10 +2560,6 @@ and trans_command ((kind, body) : mt) : CST.command =
                                               trans_semgrep_deep_expression (Run.matcher_token v)
                                             )
                                         | Alt (1, v) ->
-                                            `Semg_named_ellips (
-                                              trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                            )
-                                        | Alt (2, v) ->
                                             `Choice_word (
                                               (match v with
                                               | Alt (0, v) ->
@@ -2682,10 +2648,6 @@ and trans_command_name ((kind, body) : mt) : CST.command_name =
                   trans_semgrep_deep_expression (Run.matcher_token v)
                 )
             | Alt (1, v) ->
-                `Semg_named_ellips (
-                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                )
-            | Alt (2, v) ->
                 `Choice_word (
                   (match v with
                   | Alt (0, v) ->
@@ -2931,10 +2893,6 @@ and trans_concatenation ((kind, body) : mt) : CST.concatenation =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -3001,10 +2959,6 @@ and trans_concatenation ((kind, body) : mt) : CST.concatenation =
                                   trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Semg_named_ellips (
-                                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
                                 `Choice_word (
                                   (match v with
                                   | Alt (0, v) ->
@@ -3126,10 +3080,6 @@ and trans_declaration_command ((kind, body) : mt) : CST.declaration_command =
                                   trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Semg_named_ellips (
-                                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
                                 `Choice_word (
                                   (match v with
                                   | Alt (0, v) ->
@@ -3652,10 +3602,6 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                                             trans_semgrep_deep_expression (Run.matcher_token v)
                                           )
                                       | Alt (1, v) ->
-                                          `Semg_named_ellips (
-                                            trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                          )
-                                      | Alt (2, v) ->
                                           `Choice_word (
                                             (match v with
                                             | Alt (0, v) ->
@@ -3808,10 +3754,6 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                                                   trans_semgrep_deep_expression (Run.matcher_token v)
                                                 )
                                             | Alt (1, v) ->
-                                                `Semg_named_ellips (
-                                                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                                )
-                                            | Alt (2, v) ->
                                                 `Choice_word (
                                                   (match v with
                                                   | Alt (0, v) ->
@@ -3931,10 +3873,6 @@ and trans_expression ((kind, body) : mt) : CST.expression =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -4071,10 +4009,6 @@ and trans_file_redirect ((kind, body) : mt) : CST.file_redirect =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -4183,10 +4117,6 @@ and trans_for_statement ((kind, body) : mt) : CST.for_statement =
                                       trans_semgrep_deep_expression (Run.matcher_token v)
                                     )
                                 | Alt (1, v) ->
-                                    `Semg_named_ellips (
-                                      trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                    )
-                                | Alt (2, v) ->
                                     `Choice_word (
                                       (match v with
                                       | Alt (0, v) ->
@@ -4405,10 +4335,6 @@ and trans_herestring_redirect ((kind, body) : mt) : CST.herestring_redirect =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -4627,10 +4553,6 @@ and trans_last_case_item ((kind, body) : mt) : CST.last_case_item =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -4703,10 +4625,6 @@ and trans_last_case_item ((kind, body) : mt) : CST.last_case_item =
                                   trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Semg_named_ellips (
-                                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
                                 `Choice_word (
                                   (match v with
                                   | Alt (0, v) ->
@@ -5321,10 +5239,6 @@ and trans_semgrep_deep_expression ((kind, body) : mt) : CST.semgrep_deep_express
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -5723,10 +5637,6 @@ and trans_subscript ((kind, body) : mt) : CST.subscript =
                         trans_semgrep_deep_expression (Run.matcher_token v)
                       )
                   | Alt (1, v) ->
-                      `Semg_named_ellips (
-                        trans_semgrep_named_ellipsis (Run.matcher_token v)
-                      )
-                  | Alt (2, v) ->
                       `Choice_word (
                         (match v with
                         | Alt (0, v) ->
@@ -6035,10 +5945,6 @@ and trans_unset_command ((kind, body) : mt) : CST.unset_command =
                                   trans_semgrep_deep_expression (Run.matcher_token v)
                                 )
                             | Alt (1, v) ->
-                                `Semg_named_ellips (
-                                  trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                )
-                            | Alt (2, v) ->
                                 `Choice_word (
                                   (match v with
                                   | Alt (0, v) ->
@@ -6152,10 +6058,6 @@ and trans_variable_assignment ((kind, body) : mt) : CST.variable_assignment =
                                     trans_semgrep_deep_expression (Run.matcher_token v)
                                   )
                               | Alt (1, v) ->
-                                  `Semg_named_ellips (
-                                    trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                  )
-                              | Alt (2, v) ->
                                   `Choice_word (
                                     (match v with
                                     | Alt (0, v) ->
@@ -6268,10 +6170,6 @@ and trans_variable_assignment ((kind, body) : mt) : CST.variable_assignment =
                                     trans_semgrep_deep_expression (Run.matcher_token v)
                                   )
                               | Alt (1, v) ->
-                                  `Semg_named_ellips (
-                                    trans_semgrep_named_ellipsis (Run.matcher_token v)
-                                  )
-                              | Alt (2, v) ->
                                   `Choice_word (
                                     (match v with
                                     | Alt (0, v) ->

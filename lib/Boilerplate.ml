@@ -126,18 +126,23 @@ let map_simple_variable_name (env : env) (x : CST.simple_variable_name) =
   | `Pat_42e353e tok -> (* pattern \w+ *) token env tok
   )
 
-let map_simple_expansion (env : env) ((v1, v2) : CST.simple_expansion) =
-  let v1 = (* "$" *) token env v1 in
-  let v2 =
-    (match v2 with
-    | `Orig_simple_var_name tok ->
-        (* pattern \w+ *) token env tok
-    | `Choice_STAR x -> map_special_variable_name env x
-    | `BANG tok -> (* "!" *) token env tok
-    | `HASH tok -> (* "#" *) token env tok
-    )
-  in
-  todo env (v1, v2)
+let map_simple_expansion (env : env) (x : CST.simple_expansion) =
+  (match x with
+  | `DOLLAR_choice_orig_simple_var_name (v1, v2) ->
+      let v1 = (* "$" *) token env v1 in
+      let v2 =
+        (match v2 with
+        | `Orig_simple_var_name tok ->
+            (* pattern \w+ *) token env tok
+        | `Choice_STAR x -> map_special_variable_name env x
+        | `BANG tok -> (* "!" *) token env tok
+        | `HASH tok -> (* "#" *) token env tok
+        )
+      in
+      todo env (v1, v2)
+  | `Semg_named_ellips tok ->
+      (* pattern \$\.\.\.[A-Z_][A-Z_0-9]* *) token env tok
+  )
 
 let rec map_anon_choice_lit_bbf16c7 (env : env) (x : CST.anon_choice_lit_bbf16c7) =
   (match x with
@@ -529,8 +534,6 @@ and map_primary_expression (env : env) (x : CST.primary_expression) =
       let v2 = map_literal env v2 in
       let v3 = (* "...>" *) token env v3 in
       todo env (v1, v2, v3)
-  | `Semg_named_ellips tok ->
-      (* pattern \$\.\.\.[A-Z_][A-Z_0-9]* *) token env tok
   | `Choice_word x ->
       (match x with
       | `Word tok -> (* word *) token env tok

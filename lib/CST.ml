@@ -108,15 +108,18 @@ type simple_variable_name = [
 ]
 [@@deriving sexp_of]
 
-type simple_expansion = (
-    Token.t (* "$" *)
-  * [
-        `Orig_simple_var_name of pat_42e353e (*tok*)
-      | `Choice_STAR of special_variable_name
-      | `BANG of Token.t (* "!" *)
-      | `HASH of Token.t (* "#" *)
-    ]
-)
+type simple_expansion = [
+    `DOLLAR_choice_orig_simple_var_name of (
+        Token.t (* "$" *)
+      * [
+            `Orig_simple_var_name of pat_42e353e (*tok*)
+          | `Choice_STAR of special_variable_name
+          | `BANG of Token.t (* "!" *)
+          | `HASH of Token.t (* "#" *)
+        ]
+    )
+  | `Semg_named_ellips of semgrep_named_ellipsis (*tok*)
+]
 [@@deriving sexp_of]
 
 type anon_choice_lit_bbf16c7 = [
@@ -341,7 +344,6 @@ and literal = [
 
 and primary_expression = [
     `Semg_deep_exp of (Token.t (* "<..." *) * literal * Token.t (* "...>" *))
-  | `Semg_named_ellips of semgrep_named_ellipsis (*tok*)
   | `Choice_word of [
         `Word of word (*tok*)
       | `Str of string_
