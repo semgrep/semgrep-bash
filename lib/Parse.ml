@@ -33,26 +33,27 @@ let extras = [
 ]
 
 let children_regexps : (string * Run.exp option) list = [
-  "semgrep_named_ellipsis", None;
   "regex", None;
+  "empty_value", None;
+  "string_content", None;
+  "pat_42e353e", None;
+  "heredoc_body_end", None;
+  "concat", None;
+  "simple_heredoc_body", None;
+  "semgrep_metavariable", None;
+  "special_character", None;
+  "heredoc_start", None;
+  "heredoc_body_middle", None;
   "semgrep_metavar_eq", None;
   "test_operator", None;
   "raw_string", None;
-  "empty_value", None;
-  "string_content", None;
-  "concat", None;
-  "simple_heredoc_body", None;
-  "pat_42e353e", None;
-  "semgrep_metavariable", None;
-  "variable_name", None;
   "file_descriptor", None;
-  "special_character", None;
-  "heredoc_start", None;
+  "variable_name", None;
+  "semgrep_named_ellipsis", None;
+  "tok_prec_p1_slash", None;
   "ansii_c_string", None;
-  "heredoc_body_middle", None;
-  "word", None;
   "heredoc_body_beginning", None;
-  "heredoc_body_end", None;
+  "word", None;
   "semgrep_metavar_pluseq", None;
   "orig_simple_variable_name",
   Some (
@@ -740,7 +741,7 @@ let children_regexps : (string * Run.exp option) list = [
             |];
             Opt (
               Seq [
-                Token (Literal "/");
+                Token (Name "tok_prec_p1_slash");
                 Opt (
                   Token (Name "regex");
                 );
@@ -1617,12 +1618,58 @@ let children_regexps : (string * Run.exp option) list = [
   );
 ]
 
-let trans_semgrep_named_ellipsis ((kind, body) : mt) : CST.semgrep_named_ellipsis =
+let trans_regex ((kind, body) : mt) : CST.regex =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_regex ((kind, body) : mt) : CST.regex =
+let trans_empty_value ((kind, body) : mt) : CST.empty_value =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_string_content ((kind, body) : mt) : CST.string_content =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_pat_42e353e ((kind, body) : mt) : CST.pat_42e353e =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+
+let trans_heredoc_body_end ((kind, body) : mt) : CST.heredoc_body_end =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_concat ((kind, body) : mt) : CST.concat =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_simple_heredoc_body ((kind, body) : mt) : CST.simple_heredoc_body =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_semgrep_metavariable ((kind, body) : mt) : CST.semgrep_metavariable =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_special_character ((kind, body) : mt) : CST.special_character =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_heredoc_start ((kind, body) : mt) : CST.heredoc_start =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_heredoc_body_middle ((kind, body) : mt) : CST.heredoc_body_middle =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
@@ -1642,53 +1689,23 @@ let trans_raw_string ((kind, body) : mt) : CST.raw_string =
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_empty_value ((kind, body) : mt) : CST.empty_value =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
-let trans_string_content ((kind, body) : mt) : CST.string_content =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
-let trans_concat ((kind, body) : mt) : CST.concat =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
-let trans_simple_heredoc_body ((kind, body) : mt) : CST.simple_heredoc_body =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
-let trans_pat_42e353e ((kind, body) : mt) : CST.pat_42e353e =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
-let trans_semgrep_metavariable ((kind, body) : mt) : CST.semgrep_metavariable =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
-let trans_variable_name ((kind, body) : mt) : CST.variable_name =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
 let trans_file_descriptor ((kind, body) : mt) : CST.file_descriptor =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
 
 
-let trans_special_character ((kind, body) : mt) : CST.special_character =
+let trans_variable_name ((kind, body) : mt) : CST.variable_name =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_heredoc_start ((kind, body) : mt) : CST.heredoc_start =
+let trans_semgrep_named_ellipsis ((kind, body) : mt) : CST.semgrep_named_ellipsis =
+  match body with
+  | Leaf v -> v
+  | Children _ -> assert false
+
+let trans_tok_prec_p1_slash ((kind, body) : mt) : CST.tok_prec_p1_slash =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
@@ -1698,23 +1715,12 @@ let trans_ansii_c_string ((kind, body) : mt) : CST.ansii_c_string =
   | Leaf v -> v
   | Children _ -> assert false
 
-
-let trans_heredoc_body_middle ((kind, body) : mt) : CST.heredoc_body_middle =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
-let trans_word ((kind, body) : mt) : CST.word =
-  match body with
-  | Leaf v -> v
-  | Children _ -> assert false
-
 let trans_heredoc_body_beginning ((kind, body) : mt) : CST.heredoc_body_beginning =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
 
-let trans_heredoc_body_end ((kind, body) : mt) : CST.heredoc_body_end =
+let trans_word ((kind, body) : mt) : CST.word =
   match body with
   | Leaf v -> v
   | Children _ -> assert false
@@ -3661,7 +3667,7 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                       )
                     )
                 | Alt (1, v) ->
-                    `Choice_subs_opt_SLASH_opt_regex_rep_choice_choice_conc (
+                    `Choice_subs_opt_tok_prec_p1_slash_opt_regex_rep_choice_choice_conc (
                       (match v with
                       | Seq [v0; v1; v2] ->
                           (
@@ -3726,7 +3732,7 @@ and trans_expansion ((kind, body) : mt) : CST.expansion =
                                 (match v with
                                 | Seq [v0; v1] ->
                                     (
-                                      Run.trans_token (Run.matcher_token v0),
+                                      trans_tok_prec_p1_slash (Run.matcher_token v0),
                                       Run.opt
                                         (fun v -> trans_regex (Run.matcher_token v))
                                         v1
@@ -6256,6 +6262,7 @@ and trans_while_statement ((kind, body) : mt) : CST.while_statement =
   | Leaf _ -> assert false
 
 
+
 let trans_program ((kind, body) : mt) : CST.program =
   match body with
   | Children v ->
@@ -6263,7 +6270,6 @@ let trans_program ((kind, body) : mt) : CST.program =
         (fun v -> trans_statements (Run.matcher_token v))
         v
   | Leaf _ -> assert false
-
 
 
 

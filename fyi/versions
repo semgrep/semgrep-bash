@@ -2,29 +2,33 @@ File: semgrep-grammars/src/tree-sitter-bash/LICENSE
 Git repo name: tree-sitter-bash
 Latest commit in repo: 30d369ba45971a40160de34631ceea05358c9a48
 Last change in file:
-  commit 6861ab03bf19fbddd1d4bb95a76b23cb2092eb52
-  Author: Max Brunsfeld <maxbrunsfeld@gmail.com>
-  Date:   Fri Jul 14 14:46:24 2017 -0700
+  commit 30d369ba45971a40160de34631ceea05358c9a48
+  Author: Martin Jambon <martin@returntocorp.com>
+  Date:   Sun Oct 10 01:14:12 2021 -0700
   
-      Add license and readme
+      Merge pull request #111 from tree-sitter/mj-select
+      
+      Support for 'select' loops
 ---
 File: semgrep-grammars/src/tree-sitter-bash/grammar.js
 Git repo name: tree-sitter-bash
 Latest commit in repo: 30d369ba45971a40160de34631ceea05358c9a48
 Last change in file:
-  commit c79d2377d4bf2a1a33b749fc8740b3bc2b0f8109
-  Author: Martin Jambon <martin@mjambon.com>
-  Date:   Sat Oct 9 02:44:05 2021 -0700
+  commit 30d369ba45971a40160de34631ceea05358c9a48
+  Author: Martin Jambon <martin@returntocorp.com>
+  Date:   Sun Oct 10 01:14:12 2021 -0700
   
-      Add support for 'select' loops.
+      Merge pull request #111 from tree-sitter/mj-select
+      
+      Support for 'select' loops
 ---
 File: semgrep-grammars/src/semgrep-bash/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: a352aa10b583186ba267854bb28a2d72e9fe0a83
+Latest commit in repo: b6966e40776079d0736ff834fa042e225aa49034
 Last change in file:
-  commit a352aa10b583186ba267854bb28a2d72e9fe0a83
+  commit 26f6ce5a8e3b2d6731f14c5ccb92deafb102a8d1
   Author: Martin Jambon <martin@r2c.dev>
-  Date:   Tue Apr 12 20:05:35 2022 -0700
+  Date:   Wed Apr 13 15:38:06 2022 -0700
   
-      bash: support named ellipses within double-quoted strings
+      Update comment
 ---
