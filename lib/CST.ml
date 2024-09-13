@@ -671,6 +671,6 @@ type while_statement (* inlined *) = (
     Token.t (* "while" *) * terminated_statement * do_group
 )
 
-type extra = Comment of Loc.t * comment
+type extra = [ `Comment of Loc.t * comment ]
 
 type extras = extra list
